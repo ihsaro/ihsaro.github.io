@@ -1,4 +1,7 @@
 import React, { useEffect, useState } from "react";
+import clsx from "clsx";
+import InboxIcon from "@material-ui/icons/MoveToInbox";
+import MailIcon from "@material-ui/icons/Mail";
 import { useWindowSize } from "../common/CustomHooks";
 import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
@@ -12,8 +15,14 @@ import MenuBookIcon from "@material-ui/icons/MenuBook";
 import LaptopIcon from "@material-ui/icons/Laptop";
 import WorkOutlineIcon from "@material-ui/icons/WorkOutline";
 import AccountTreeIcon from "@material-ui/icons/AccountTree";
+import Drawer from "@material-ui/core/Drawer";
+import List from "@material-ui/core/List";
+import Divider from "@material-ui/core/Divider";
+import ListItem from "@material-ui/core/ListItem";
+import ListItemIcon from "@material-ui/core/ListItemIcon";
+import ListItemText from "@material-ui/core/ListItemText";
 
-const useStyles = makeStyles((theme: Theme) =>
+const navigationBarStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
       flexGrow: 1,
@@ -27,6 +36,12 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
+const drawerStyles = makeStyles({
+  list: {
+    width: 250,
+  },
+});
+
 const navBarButtonProperties = {
   fontFamily: "'Montserrat', sans-serif",
 };
@@ -35,18 +50,70 @@ const navBarIconProperties = {
   paddingRight: "5px",
 };
 
+type Anchor = "left";
+
 export default function NavigationBar() {
-  const classes = useStyles();
+  const navigationBarClasses = navigationBarStyles();
+  const drawerClasses = drawerStyles();
   const size = useWindowSize();
+
+  const [drawerState, setDrawerState] = useState({
+    left: false,
+  });
+
+  const toggleDrawer = (anchor: Anchor, open: boolean) => (
+    event: React.KeyboardEvent | React.MouseEvent
+  ) => {
+    if (
+      event.type === "keydown" &&
+      ((event as React.KeyboardEvent).key === "Tab" ||
+        (event as React.KeyboardEvent).key === "Shift")
+    ) {
+      return;
+    }
+
+    setDrawerState({ ...drawerState, [anchor]: open });
+  };
+
+  const list = (anchor: Anchor) => (
+    <div
+      className={drawerClasses.list}
+      role="presentation"
+      onClick={toggleDrawer(anchor, false)}
+      onKeyDown={toggleDrawer(anchor, false)}
+    >
+      <List>
+        {["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (
+          <ListItem button key={text}>
+            <ListItemIcon>
+              {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+            </ListItemIcon>
+            <ListItemText primary={text} />
+          </ListItem>
+        ))}
+      </List>
+      <Divider />
+      <List>
+        {["All mail", "Trash", "Spam"].map((text, index) => (
+          <ListItem button key={text}>
+            <ListItemIcon>
+              {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+            </ListItemIcon>
+            <ListItemText primary={text} />
+          </ListItem>
+        ))}
+      </List>
+    </div>
+  );
 
   if (size.width > 1005) {
     return (
-      <div className={classes.root}>
+      <div className={navigationBarClasses.root}>
         <AppBar position="fixed">
           <Toolbar>
             <Typography
               variant="h6"
-              className={classes.title}
+              className={navigationBarClasses.title}
               style={navBarButtonProperties}
             >
               HOSSANEE Muhammad Idjaz Ali
@@ -77,16 +144,23 @@ export default function NavigationBar() {
     );
   } else {
     return (
-      <div className={classes.root}>
+      <div className={navigationBarClasses.root}>
         <AppBar position="fixed">
           <Toolbar>
             <IconButton
               edge="start"
-              className={classes.menuButton}
+              className={navigationBarClasses.menuButton}
               color="inherit"
               aria-label="menu"
             >
-              <MenuIcon />
+              <MenuIcon onClick={toggleDrawer("left", true)} />
+              <Drawer
+                anchor="left"
+                open={drawerState["left"]}
+                onClose={toggleDrawer("left", false)}
+              >
+                {list("left")}
+              </Drawer>
             </IconButton>
           </Toolbar>
         </AppBar>
