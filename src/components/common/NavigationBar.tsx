@@ -1,7 +1,4 @@
-import React, { useEffect, useState } from "react";
-import clsx from "clsx";
-import InboxIcon from "@material-ui/icons/MoveToInbox";
-import MailIcon from "@material-ui/icons/Mail";
+import React, { useState } from "react";
 import { useWindowSize } from "../common/CustomHooks";
 import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
@@ -17,7 +14,6 @@ import WorkOutlineIcon from "@material-ui/icons/WorkOutline";
 import AccountTreeIcon from "@material-ui/icons/AccountTree";
 import Drawer from "@material-ui/core/Drawer";
 import List from "@material-ui/core/List";
-import Divider from "@material-ui/core/Divider";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
