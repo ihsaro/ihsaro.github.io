@@ -11,49 +11,33 @@ import WorkOutlineIcon from "@material-ui/icons/WorkOutline";
 import AccountTreeIcon from "@material-ui/icons/AccountTree";
 import { Drawer, Link } from '@material-ui/core';
 
-const navigationBarTitleStyles = {
-	flexGrow: 1,
-	fontFamily: "'Montserrat', sans-serif"
-}
-
-const navigationBarButtonStyles = {
-	fontFamily: "'Montserrat', sans-serif",
-	fontSize: "13px"
-}
-
-const navigationBarIconStyles = {
-	marginRight: "5px"
-}
-
-const menuIconStyles = {
-	padding: "20px"
-}
+import './css/NavigationBar.css'
 
 function DesktopNavigationBar() {
 	return (
 		<AppBar>
 			<Toolbar>
-				<Typography variant="h6" style={navigationBarTitleStyles}>
+				<Typography variant="h6" className="navigationBarTitleStyles">
 					HOSSANEE Muhammad Idjaz Ali
 				</Typography>
-				<Button color="inherit" style={navigationBarButtonStyles}>
-					<HomeIcon style={navigationBarIconStyles} />
+				<Button color="inherit" className="navigationBarButtonStyles">
+					<HomeIcon className="navigationBarIconStyles" />
 					HOME
 				</Button>
-				<Button color="inherit" style={navigationBarButtonStyles}>
-					<MenuBookIcon style={navigationBarIconStyles} />
+				<Button color="inherit" className="navigationBarButtonStyles">
+					<MenuBookIcon className="navigationBarIconStyles" />
 					EDUCATION
 				</Button>
-				<Button color="inherit" style={navigationBarButtonStyles}>
-					<LaptopIcon style={navigationBarIconStyles} />
+				<Button color="inherit" className="navigationBarButtonStyles">
+					<LaptopIcon className="navigationBarIconStyles" />
 					SKILLS
 				</Button>
-				<Button color="inherit" style={navigationBarButtonStyles}>
-					<WorkOutlineIcon style={navigationBarIconStyles} />
+				<Button color="inherit" className="navigationBarButtonStyles">
+					<WorkOutlineIcon className="navigationBarIconStyles" />
 					WORK EXPERIENCE
 				</Button>
-				<Button color="inherit" style={navigationBarButtonStyles}>
-					<AccountTreeIcon style={navigationBarIconStyles} />
+				<Button color="inherit" className="navigationBarButtonStyles">
+					<AccountTreeIcon className="navigationBarIconStyles" />
 					PROJECTS
 				</Button>
 			</Toolbar>
@@ -74,9 +58,31 @@ function MobileNavigationBar() {
 
 	return (
 		<AppBar>
-			<MenuIcon style={menuIconStyles} onClick={event => toggleDrawerStatus(event)} />
+			<MenuIcon className="menuIconStyles" onClick={event => toggleDrawerStatus(event)} />
 			<Drawer open={isDrawerOpened} onClose={event => closeDrawer(event)}>
-				
+				<Typography variant="h6" className="mobileNavigationBarTitleStyles">
+					HOSSANEE Muhammad Idjaz Ali
+				</Typography>
+				<Button color="inherit" className="navigationBarButtonStyles">
+					<HomeIcon className="navigationBarIconStyles" />
+					HOME
+				</Button>
+				<Button color="inherit" className="navigationBarButtonStyles">
+					<MenuBookIcon className="navigationBarIconStyles" />
+					EDUCATION
+				</Button>
+				<Button color="inherit" className="navigationBarButtonStyles">
+					<LaptopIcon className="navigationBarIconStyles" />
+					SKILLS
+				</Button>
+				<Button color="inherit" className="navigationBarButtonStyles">
+					<WorkOutlineIcon className="navigationBarIconStyles" />
+					WORK EXPERIENCE
+				</Button>
+				<Button color="inherit" className="navigationBarButtonStyles">
+					<AccountTreeIcon className="navigationBarIconStyles" />
+					PROJECTS
+				</Button>
 			</Drawer>
 		</AppBar>
 	)
@@ -85,7 +91,7 @@ function MobileNavigationBar() {
 export default function NavigationBar() {
 
 	const [windowInnerWidth, setWindowInnerWidth] = useState(window.innerWidth);
-	const DESKTOP_WIDTH = 996
+	const DESKTOP_WIDTH = 1125;
 
     useEffect(() => {
         window.addEventListener('resize', () => {

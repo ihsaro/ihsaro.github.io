@@ -1,0 +1,28 @@
+.navigationBarTitleStyles {
+	flex-grow: 1;
+	font-family: 'Montserrat', sans-serif !important;
+}
+
+.mobileNavigationBarTitleStyles {
+	font-family: "Montserrat", sans-serif !important;
+	padding: 20px;
+}
+
+.navigationBarButtonStyles {
+	font-family: "Montserrat", sans-serif !important;
+	text-align: left;
+	font-size: 13px;
+}
+
+.navigationBarIconStyles {
+	margin-right: 5px;
+}
+
+.menuIconStyles {
+	padding: 20px;
+}
+
+.MuiButton-label {
+	justify-content: start !important;
+    padding: 10px;
+}
