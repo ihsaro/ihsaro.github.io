@@ -8,4 +8,9 @@
 #sub-header {
     margin-top: 25px;
     font-family: 'Montserrat', sans-serif;
+    text-align: center;
+}
+
+.social-media-icon {
+    padding: 0px 15px 0px 15px;
 }
