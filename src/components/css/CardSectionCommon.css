@@ -1,0 +1,9 @@
+.card-section {
+    margin: 20px;
+    padding: 5px 5px 5px 15px;
+}
+
+.card-title {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+}
