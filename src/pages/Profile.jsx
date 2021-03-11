@@ -20,7 +20,6 @@ export default function Profile() {
                 <Grid
                     container
                     direction="row"
-                    justify="space-around"
                 >
                     <Grid item xs={12} sm={6}>
                         <About />
