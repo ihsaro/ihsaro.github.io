@@ -1,7 +1,6 @@
 import { AppBar, Box, Paper, Tabs, Tab, Typography } from "@material-ui/core";
 import { useState } from "react";
 
-import "./css/CardSectionCommon.css";
 import "./css/Education.css";
 
 function TabPanel(props) {
@@ -33,7 +32,7 @@ export default function Education() {
 
     return (
         <Paper square elevation={0} className="card-section-app-bar">
-            <AppBar position="relative" className="education-app-bar">
+            <AppBar position="relative">
                 <Tabs
                     value={value} 
                     index={0} 
@@ -45,7 +44,23 @@ export default function Education() {
                 </Tabs>
             </AppBar>
             <TabPanel value={value} index={0}>
-                Item One
+                <p className="tertiary-text"><u>Institution</u>: University of Mauritius</p>
+                <p className="tertiary-text"><u>Course</u>: BSc (Hons) Computer Science</p>
+                <p className="tertiary-text"><u>Year</u>: 2016 - 2019</p>
+                <p className="tertiary-text"><u>Comments</u></p>
+                <p className="tertiary-text">
+                    Graduated with a <b>1<sup>st</sup> class degree</b>, being exposed to topics such as: <br />
+                    <ol>
+                        <li>Object-Oriented Programming</li>
+                        <li>Algorithm and Complexities</li>
+                        <li>Software Engineering Principles</li>
+                        <li>Web Development</li>
+                        <li>Operating Systems</li>
+                        <li>Computer Networking and Systems Administration</li>
+                        <li>Parallel & Distributed System</li>
+                        <li><em>And so on ...</em></li>
+                    </ol>
+                </p>
             </TabPanel>
             <TabPanel value={value} index={1}>
                 Item Two
