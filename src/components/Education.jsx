@@ -1,4 +1,4 @@
-import { AppBar, Box, Paper, Tabs, Tab, Typography } from "@material-ui/core";
+import { AppBar, Box, Paper, Tabs, Tab, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from "@material-ui/core";
 import { useState } from "react";
 
 import "./css/Education.css";
@@ -23,6 +23,18 @@ function TabPanel(props) {
     );
 }
 
+function createResult(subject, result) {
+    return { subject, result }
+}
+
+const hscResults = [
+    createResult('Mathematics', 'A'),
+    createResult('Physics', 'B'),
+    createResult('Computer Science', 'C'),
+    createResult('General Paper', 'd'),
+    createResult('Physical Education', 'd')
+]
+
 export default function Education() {
     const [value, setValue] = useState(0);
     
@@ -32,7 +44,7 @@ export default function Education() {
 
     return (
         <Paper square elevation={0} className="card-section-app-bar">
-            <AppBar position="relative">
+            <AppBar className="education-app-bar" position="relative">
                 <Tabs
                     value={value} 
                     index={0} 
@@ -44,11 +56,11 @@ export default function Education() {
                 </Tabs>
             </AppBar>
             <TabPanel value={value} index={0}>
-                <p className="tertiary-text"><u>Institution</u>: University of Mauritius</p>
-                <p className="tertiary-text"><u>Course</u>: BSc (Hons) Computer Science</p>
-                <p className="tertiary-text"><u>Year</u>: 2016 - 2019</p>
-                <p className="tertiary-text"><u>Comments</u></p>
-                <p className="tertiary-text">
+                <p className="education-text"><u>Institution</u>: University of Mauritius</p>
+                <p className="education-text"><u>Course</u>: BSc (Hons) Computer Science</p>
+                <p className="education-text"><u>Year</u>: 2016 - 2019</p>
+                <p className="education-text"><u>Comments</u></p>
+                <p className="education-text">
                     Graduated with a <b>1<sup>st</sup> class degree</b>, being exposed to topics such as: <br />
                     <ol>
                         <li>Object-Oriented Programming</li>
@@ -63,7 +75,28 @@ export default function Education() {
                 </p>
             </TabPanel>
             <TabPanel value={value} index={1}>
-                Item Two
+                <p className="education-text"><u>Institution</u>: Sir Abdool Raman Osman State College</p>
+                <p className="education-text"><u>Year</u>: 2015</p>
+                <TableContainer className="table-container">
+                    <Table aria-label="simple table">
+                        <TableHead>
+                        <TableRow>
+                            <TableCell className="table-header">Subject</TableCell>
+                            <TableCell className="table-header">Result</TableCell>
+                        </TableRow>
+                        </TableHead>
+                        <TableBody>
+                        {hscResults.map((row) => (
+                            <TableRow key={row.subject}>
+                                <TableCell className="table-row" component="th" scope="row">
+                                    {row.subject}
+                                </TableCell>
+                                <TableCell className="table-row">{row.result}</TableCell>
+                            </TableRow>
+                        ))}
+                        </TableBody>
+                    </Table>
+                </TableContainer>
             </TabPanel>
             <TabPanel value={value} index={2}>
                 Item Three

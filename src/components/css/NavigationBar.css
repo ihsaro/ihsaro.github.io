@@ -1,3 +1,7 @@
+.navigation-bar {
+	z-index: 2;
+}
+
 .navigationBarTitleStyles {
 	flex-grow: 1;
 	font-family: 'Montserrat', sans-serif !important;

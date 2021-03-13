@@ -15,7 +15,7 @@ import './css/NavigationBar.css'
 
 function DesktopNavigationBar() {
 	return (
-		<AppBar>
+		<AppBar className="navigation-bar">
 			<Toolbar>
 				<Typography variant="h6" className="navigationBarTitleStyles">
 					HOSSANEE Muhammad Idjaz Ali
