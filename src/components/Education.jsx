@@ -1,8 +1,28 @@
-import { AppBar, Paper, Tabs, Tab } from "@material-ui/core";
+import { AppBar, Box, Paper, Tabs, Tab, Typography } from "@material-ui/core";
 import { useState } from "react";
 
 import "./css/CardSectionCommon.css";
 import "./css/Education.css";
+
+function TabPanel(props) {
+    const { children, value, index, ...other } = props;
+  
+    return (
+      <div
+        role="tabpanel"
+        hidden={value !== index}
+        id={`scrollable-auto-tabpanel-${index}`}
+        aria-labelledby={`scrollable-auto-tab-${index}`}
+        {...other}
+      >
+        {value === index && (
+          <Box p={3}>
+            <Typography>{children}</Typography>
+          </Box>
+        )}
+      </div>
+    );
+}
 
 export default function Education() {
     const [value, setValue] = useState(0);
@@ -24,6 +44,15 @@ export default function Education() {
                     <Tab label="School Certificate" />
                 </Tabs>
             </AppBar>
+            <TabPanel value={value} index={0}>
+                Item One
+            </TabPanel>
+            <TabPanel value={value} index={1}>
+                Item Two
+            </TabPanel>
+            <TabPanel value={value} index={2}>
+                Item Three
+            </TabPanel>
         </Paper>
     )
 }
