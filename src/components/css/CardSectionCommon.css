@@ -1,6 +1,11 @@
 .card-section {
     margin: 20px;
     padding: 5px 5px 5px 15px;
+    height: 83.5%;
+}
+
+.card-section-app-bar {
+    margin: 20px;
 }
 
 .card-title {
