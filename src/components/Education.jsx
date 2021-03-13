@@ -23,6 +23,35 @@ function TabPanel(props) {
     );
 }
 
+function SecondaryResult(props) {
+    return (
+        <>
+            <p className="education-text"><u>Institution</u>: {props.institutionName}</p>
+            <p className="education-text"><u>Year</u>: {props.year}</p>
+            <TableContainer className="table-container">
+                <Table aria-label="simple table">
+                    <TableHead>
+                    <TableRow>
+                        <TableCell className="table-header">Subject</TableCell>
+                        <TableCell className="table-header">Result</TableCell>
+                    </TableRow>
+                    </TableHead>
+                    <TableBody>
+                    {props.results.map((row) => (
+                        <TableRow key={row.subject}>
+                            <TableCell className="table-row" component="th" scope="row">
+                                {row.subject}
+                            </TableCell>
+                            <TableCell className="table-row">{row.result}</TableCell>
+                        </TableRow>
+                    ))}
+                    </TableBody>
+                </Table>
+            </TableContainer>
+        </>
+    )
+}
+
 function createResult(subject, result) {
     return { subject, result }
 }
@@ -33,6 +62,17 @@ const hscResults = [
     createResult('Computer Science', 'C'),
     createResult('General Paper', 'd'),
     createResult('Physical Education', 'd')
+]
+
+const scResults = [
+    createResult('Mathematics', '2'),
+    createResult('English', '3'),
+    createResult('French', '1'),
+    createResult('Additional Mathematics', '3'),
+    createResult('Physics', '3'),
+    createResult('Computer Science', '2'),
+    createResult('Design & Technology', '3'),
+    createResult('Physical Education', '2')
 ]
 
 export default function Education() {
@@ -75,31 +115,10 @@ export default function Education() {
                 </p>
             </TabPanel>
             <TabPanel value={value} index={1}>
-                <p className="education-text"><u>Institution</u>: Sir Abdool Raman Osman State College</p>
-                <p className="education-text"><u>Year</u>: 2015</p>
-                <TableContainer className="table-container">
-                    <Table aria-label="simple table">
-                        <TableHead>
-                        <TableRow>
-                            <TableCell className="table-header">Subject</TableCell>
-                            <TableCell className="table-header">Result</TableCell>
-                        </TableRow>
-                        </TableHead>
-                        <TableBody>
-                        {hscResults.map((row) => (
-                            <TableRow key={row.subject}>
-                                <TableCell className="table-row" component="th" scope="row">
-                                    {row.subject}
-                                </TableCell>
-                                <TableCell className="table-row">{row.result}</TableCell>
-                            </TableRow>
-                        ))}
-                        </TableBody>
-                    </Table>
-                </TableContainer>
+                <SecondaryResult institutionName="Sir Abdool Raman Osman State College" year="2015" results={hscResults} />
             </TabPanel>
             <TabPanel value={value} index={2}>
-                Item Three
+                <SecondaryResult institutionName="Sir Abdool Raman Osman State College" year="2013" results={scResults} />
             </TabPanel>
         </Paper>
     )
