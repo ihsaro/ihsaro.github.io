@@ -20,15 +20,15 @@ function DesktopNavigationBar() {
 				<Typography variant="h6" className="navigationBarTitleStyles">
 					HOSSANEE Muhammad Idjaz Ali
 				</Typography>
-				<Button color="inherit" className="navigationBarButtonStyles">
+				<Button color="inherit" className="navigationBarButtonStyles" href="#home">
 					<HomeIcon className="navigationBarIconStyles" />
 					HOME
 				</Button>
-				<Button color="inherit" className="navigationBarButtonStyles">
+				<Button color="inherit" className="navigationBarButtonStyles" href="#education">
 					<MenuBookIcon className="navigationBarIconStyles" />
 					EDUCATION
 				</Button>
-				<Button color="inherit" className="navigationBarButtonStyles">
+				<Button color="inherit" className="navigationBarButtonStyles" href="#skills">
 					<LaptopIcon className="navigationBarIconStyles" />
 					SKILLS
 				</Button>
@@ -63,15 +63,15 @@ function MobileNavigationBar() {
 				<Typography variant="h6" className="mobileNavigationBarTitleStyles">
 					HOSSANEE Muhammad Idjaz Ali
 				</Typography>
-				<Button color="inherit" className="navigationBarButtonStyles">
+				<Button color="inherit" className="navigationBarButtonStyles" href="#home">
 					<HomeIcon className="navigationBarIconStyles" />
 					HOME
 				</Button>
-				<Button color="inherit" className="navigationBarButtonStyles">
+				<Button color="inherit" className="navigationBarButtonStyles" href="#education">
 					<MenuBookIcon className="navigationBarIconStyles" />
 					EDUCATION
 				</Button>
-				<Button color="inherit" className="navigationBarButtonStyles">
+				<Button color="inherit" className="navigationBarButtonStyles" href="#skills">
 					<LaptopIcon className="navigationBarIconStyles" />
 					SKILLS
 				</Button>

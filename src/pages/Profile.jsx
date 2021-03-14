@@ -9,6 +9,7 @@ import About from "../components/About";
 import PersonalDetails from "../components/PersonalDetails";
 import Education from "../components/Education";
 import "./css/Profile.css";
+import Skill from "../components/Skill";
 
 export default function Profile() {
     return (
@@ -21,7 +22,7 @@ export default function Profile() {
                 className="parent-grid"
             >
 
-                <HomeIcon className="section-icon" />
+                <HomeIcon id="home" className="section-icon" />
                 <Grid
                     container
                     direction="row"
@@ -34,13 +35,23 @@ export default function Profile() {
                     </Grid>
                 </Grid>
 
-                <MenuBookIcon className="section-icon" />
+                <MenuBookIcon id="education" className="section-icon" />
                 <Grid
                     container
                     direction="row"
                 >
                     <Grid item xs={12}>
                         <Education />
+                    </Grid>
+                </Grid>
+
+                <LaptopIcon id="skills" className="section-icon" />
+                <Grid
+                    container
+                    direction="row"
+                >
+                    <Grid item xs={12}>
+                        <Skill />
                     </Grid>
                 </Grid>
             </Grid>

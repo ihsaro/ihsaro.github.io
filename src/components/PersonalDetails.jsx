@@ -18,28 +18,24 @@ export default function PersonalDetails() {
             >
                 <Grid
                     item
-                    direction="row"
                 >
                     <CakeIcon />
                     <p className="card-text personal-detail-value">21/11/1997</p>
                 </Grid>
                 <Grid
                     item
-                    direction="row"
                 >
                     <MailIcon />
                     <p className="card-text personal-detail-value">idjazhossanee@gmail.com</p>
                 </Grid>
                 <Grid
                     item
-                    direction="row"
                 >
                     <PublicIcon />
                     <p className="card-text personal-detail-value">Mauritius</p>
                 </Grid>
                 <Grid
                     item
-                    direction="row"
                 >
                     <TranslateIcon />
                     <p className="card-text personal-detail-value">English | French | Creole</p>

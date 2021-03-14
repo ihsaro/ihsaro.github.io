@@ -13,7 +13,7 @@ export default function Introduction() {
             justify="center"
             direction="column"
         >
-            <img id="profile-picture" src={ process.env.PUBLIC_URL + "/profile_picture.jpg" } alt="" srcset=""/>
+            <img id="profile-picture" src={ process.env.PUBLIC_URL + "/profile_picture.jpg" } />
             <p id="sub-header">PROGRAMMER | OPEN SOURCE ENTHUSIAST | BADMINTON PLAYER</p>
             <Grid
                 container

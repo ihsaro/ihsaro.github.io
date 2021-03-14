@@ -83,7 +83,7 @@ export default function Education() {
     }
 
     return (
-        <Paper square elevation={0} className="card-section-app-bar">
+        <Paper square elevation={0} className="card-section-only-margin">
             <AppBar className="education-app-bar" position="relative">
                 <Tabs
                     value={value} 
