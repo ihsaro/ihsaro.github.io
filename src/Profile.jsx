@@ -1,17 +1,28 @@
 import { Grid } from "@material-ui/core";
+import { makeStyles } from "@material-ui/core/styles";
 import HomeIcon from '@material-ui/icons/Home';
 import LaptopIcon from '@material-ui/icons/Laptop';
 import MenuBookIcon from "@material-ui/icons/MenuBook";
 
-import NavigationBar from "../components/NavigationBar";
-import Introduction from "../components/Introduction";
-import About from "../components/About";
-import PersonalDetails from "../components/PersonalDetails";
-import Education from "../components/Education";
-import "./css/Profile.css";
-import Skill from "../components/Skill";
+import NavigationBar from "./components/NavigationBar";
+import Introduction from "./components/Introduction";
+import About from "./components/About";
+import PersonalDetails from "./components/PersonalDetails";
+import Education from "./components/Education";
+import Skill from "./components/Skill";
+
+const useStyles = makeStyles({
+    parentGrid: {
+        marginTop: "15px"
+    },
+    sectionIcon: {
+        marginLeft: "15px"
+    }
+});
 
 export default function Profile() {
+    const classes = useStyles();
+
     return (
         <>
             <NavigationBar />
@@ -19,10 +30,10 @@ export default function Profile() {
             <Grid
                 container
                 direction="column"
-                className="parent-grid"
+                className={classes.parentGrid}
             >
 
-                <HomeIcon id="home" className="section-icon" />
+                <HomeIcon id="home" className={classes.sectionIcon} />
                 <Grid
                     container
                     direction="row"
@@ -35,7 +46,7 @@ export default function Profile() {
                     </Grid>
                 </Grid>
 
-                <MenuBookIcon id="education" className="section-icon" />
+                <MenuBookIcon id="education" className={classes.sectionIcon} />
                 <Grid
                     container
                     direction="row"
@@ -45,7 +56,7 @@ export default function Profile() {
                     </Grid>
                 </Grid>
 
-                <LaptopIcon id="skills" className="section-icon" />
+                <LaptopIcon id="skills" className={classes.sectionIcon} />
                 <Grid
                     container
                     direction="row"

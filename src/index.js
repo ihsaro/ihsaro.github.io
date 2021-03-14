@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import Profile from "./pages/Profile";
+import Profile from "./Profile";
 
 ReactDOM.render(
   <React.StrictMode>
