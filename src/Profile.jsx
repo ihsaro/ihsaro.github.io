@@ -16,7 +16,7 @@ const useStyles = makeStyles({
         marginTop: "15px"
     },
     sectionIcon: {
-        marginLeft: "15px"
+        marginLeft: "20px"
     }
 });
 

@@ -1,11 +1,28 @@
-import { Grid, Link, Tooltip, Zoom } from "@material-ui/core";
+import { Grid, Link, makeStyles, Tooltip, Zoom } from "@material-ui/core";
 import FacebookIcon from '@material-ui/icons/Facebook';
 import GitHubIcon from '@material-ui/icons/GitHub';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
 
-import './css/Introduction.css';
+const useStyles = makeStyles({
+    profilePicture: {
+        borderRadius: "50%",
+        width: "250px",
+        marginTop: "125px",
+        display: "block"
+    },
+    subHeader: {
+        marginTop: "25px",
+        fontFamily: "'Montserrat', sans-serif",
+        textAlign: "center"
+    },
+    socialMediaIcon: {
+        padding: "0px 15px 0px 15px"
+    }
+});
 
 export default function Introduction() {
+    const classes = useStyles();
+
     return (
         <Grid
             container
@@ -13,8 +30,8 @@ export default function Introduction() {
             justify="center"
             direction="column"
         >
-            <img id="profile-picture" src={ process.env.PUBLIC_URL + "/profile_picture.jpg" } />
-            <p id="sub-header">PROGRAMMER | OPEN SOURCE ENTHUSIAST | BADMINTON PLAYER</p>
+            <img className={classes.profilePicture} src={ process.env.PUBLIC_URL + "/profile_picture.jpg" } />
+            <p className={classes.subHeader}>PROGRAMMER | OPEN SOURCE ENTHUSIAST | BADMINTON PLAYER</p>
             <Grid
                 container
                 justify="center"
@@ -22,17 +39,17 @@ export default function Introduction() {
             >
                 <Link color="inherit" href="https://www.linkedin.com/in/muhammad-idjaz-ali-hossanee-5b5913167">
                     <Tooltip arrow title="LinkedIn" TransitionComponent={Zoom}>
-                        <LinkedInIcon className="social-media-icon" />
+                        <LinkedInIcon className={classes.socialMediaIcon} />
                     </Tooltip>
                 </Link>
                 <Link color="inherit" href="https://github.com/ihsaro">
                     <Tooltip arrow title="Github" TransitionComponent={Zoom}>
-                        <GitHubIcon className="social-media-icon" />
+                        <GitHubIcon className={classes.socialMediaIcon} />
                     </Tooltip>
                 </Link>
                 <Link color="inherit" href="https://www.facebook.com/idjaz.hossanee.90">
                     <Tooltip arrow title="Facebook" TransitionComponent={Zoom}>
-                        <FacebookIcon className="social-media-icon" />
+                        <FacebookIcon className={classes.socialMediaIcon} />
                     </Tooltip>
                 </Link>
             </Grid>
