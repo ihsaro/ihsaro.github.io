@@ -1,17 +1,18 @@
 import React, { useEffect, useState } from 'react';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
+import { 
+	AppBar, 
+	Button, 
+	Toolbar, 
+	Typography, 
+	Drawer, 
+	makeStyles
+} from "@material-ui/core";
 import MenuIcon from '@material-ui/icons/Menu';
 import HomeIcon from "@material-ui/icons/Home";
 import MenuBookIcon from "@material-ui/icons/MenuBook";
 import LaptopIcon from "@material-ui/icons/Laptop";
 import WorkOutlineIcon from "@material-ui/icons/WorkOutline";
 import AccountTreeIcon from "@material-ui/icons/AccountTree";
-import { Drawer, Link, makeStyles } from '@material-ui/core';
-
-import './css/NavigationBar.css'
 
 const useStyles = makeStyles({
 	desktopNavigationBarTitle: {
@@ -26,6 +27,10 @@ const useStyles = makeStyles({
 		fontFamily: "'Montserrat', sans-serif !important",
 		fontSize: "13px",
 		textAlign: "left"
+	},
+	navigationBarButtonLabel: {
+		justifyContent: "start !important",
+    	padding: "10px"	
 	},
 	navigationBarIcon: {
 		marginRight: "5px"
@@ -42,26 +47,52 @@ function DesktopNavigationBar() {
 	return (
 		<AppBar>
 			<Toolbar>
-				<Typography variant="h6" className={classes.desktopNavigationBarTitle}>
+				<Typography 
+					variant="h6" 
+					className={classes.desktopNavigationBarTitle}
+				>
 					HOSSANEE Muhammad Idjaz Ali
 				</Typography>
-				<Button color="inherit" className={classes.navigationBarButton} href="#home">
+				<Button 
+					color="inherit" 
+					className={classes.navigationBarButton} 
+					href="#home" 
+					classes={{label: classes.navigationBarButtonLabel}}
+				>
 					<HomeIcon className={classes.navigationBarIcon} />
 					HOME
 				</Button>
-				<Button color="inherit" className={classes.navigationBarButton} href="#education">
+				<Button 
+					color="inherit" 
+					className={classes.navigationBarButton} 
+					href="#education" 
+					classes={{label: classes.navigationBarButtonLabel}}
+				>
 					<MenuBookIcon className={classes.navigationBarIcon} />
 					EDUCATION
 				</Button>
-				<Button color="inherit" className={classes.navigationBarButton} href="#skills">
+				<Button 
+					color="inherit" 
+					className={classes.navigationBarButton} 
+					href="#skills" 
+					classes={{label: classes.navigationBarButtonLabel}}
+				>
 					<LaptopIcon className={classes.navigationBarIcon} />
 					SKILLS
 				</Button>
-				<Button color="inherit" className={classes.navigationBarButton}>
+				<Button 
+					color="inherit" 
+					className={classes.navigationBarButton} 
+					classes={{label: classes.navigationBarButtonLabel}}
+				>
 					<WorkOutlineIcon className={classes.navigationBarIcon} />
 					WORK EXPERIENCE
 				</Button>
-				<Button color="inherit" className={classes.navigationBarButton}>
+				<Button 
+					color="inherit" 
+					className={classes.navigationBarButton} 
+					classes={{label: classes.navigationBarButtonLabel}}
+				>
 					<AccountTreeIcon className={classes.navigationBarIcon} />
 					PROJECTS
 				</Button>
@@ -85,28 +116,60 @@ function MobileNavigationBar() {
 
 	return (
 		<AppBar>
-			<MenuIcon className={classes.menuIcon} onClick={event => toggleDrawerStatus(event)} />
-			<Drawer open={isDrawerOpened} onClose={event => closeDrawer(event)}>
-				<Typography variant="h6" className={classes.mobileNavigationBarTitle}>
+			<MenuIcon 
+				className={classes.menuIcon} 
+				onClick={event => toggleDrawerStatus(event)} 
+			/>
+			<Drawer 
+				open={isDrawerOpened} 
+				onClose={event => closeDrawer(event)}
+			>
+				<Typography 
+					variant="h6" 
+					className={classes.mobileNavigationBarTitle}
+				>
 					HOSSANEE Muhammad Idjaz Ali
 				</Typography>
-				<Button color="inherit" className={classes.navigationBarButton} href="#home">
+				<Button 
+					color="inherit" 
+					className={classes.navigationBarButton} 
+					href="#home" 
+					classes={{label: classes.navigationBarButtonLabel}}
+				>
 					<HomeIcon className={classes.navigationBarIcon} />
 					HOME
 				</Button>
-				<Button color="inherit" className={classes.navigationBarButton} href="#education">
+				<Button 
+					color="inherit" 
+					className={classes.navigationBarButton} 
+					href="#education" 
+					classes={{label: classes.navigationBarButtonLabel}}
+				>
 					<MenuBookIcon className={classes.navigationBarIcon} />
 					EDUCATION
 				</Button>
-				<Button color="inherit" className={classes.navigationBarButton} href="#skills">
+				<Button 
+					color="inherit" 
+					className={classes.navigationBarButton} 
+					href="#skills" 
+					classes={{label: classes.navigationBarButtonLabel}}
+				>
 					<LaptopIcon className={classes.navigationBarIcon} />
 					SKILLS
 				</Button>
-				<Button color="inherit" className={classes.navigationBarButton}>
+				<Button 
+					color="inherit" 
+					className={classes.navigationBarButton} 
+					classes={{label: classes.navigationBarButtonLabel}}
+				>
 					<WorkOutlineIcon className={classes.navigationBarIcon} />
 					WORK EXPERIENCE
 				</Button>
-				<Button color="inherit" className={classes.navigationBarButton}>
+				<Button 
+					color="inherit" 
+					className={classes.navigationBarButton} 
+					classes={{label: classes.navigationBarButtonLabel}}
+				>
 					<AccountTreeIcon className={classes.navigationBarIcon} />
 					PROJECTS
 				</Button>
