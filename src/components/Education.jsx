@@ -1,7 +1,28 @@
-import { AppBar, Box, Paper, Tabs, Tab, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from "@material-ui/core";
+import { AppBar, Box, Paper, Tabs, Tab, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography, makeStyles } from "@material-ui/core";
 import { useState } from "react";
 
-import "./css/Education.css";
+const useStyles = makeStyles({
+    educationText: {
+        fontFamily: "'Montserrat', sans-serif",
+        display: "block"
+    },
+    educationAppBar: {
+        zIndex: "1 !important"
+    },
+    tableContainer: {
+        maxWidth: "75%"
+    },
+    tableHeader: {
+        fontFamily: "'Montserrat', sans-serif !important",
+        fontWeight: "bold !important"
+    },
+    tableRow: {
+        fontFamily: "'Montserrat', sans-serif !important"
+    },
+    cardSectionOnlyMargin: {
+        margin: "20px"
+    }
+});
 
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
@@ -24,25 +45,28 @@ function TabPanel(props) {
 }
 
 function SecondaryResult(props) {
+
+    const classes = useStyles();
+
     return (
         <>
-            <p className="education-text"><u>Institution</u>: {props.institutionName}</p>
-            <p className="education-text"><u>Year</u>: {props.year}</p>
-            <TableContainer className="table-container">
+            <p className={classes.educationText}><u>Institution</u>: {props.institutionName}</p>
+            <p className={classes.educationText}><u>Year</u>: {props.year}</p>
+            <TableContainer className={classes.tableContainer}>
                 <Table aria-label="simple table">
                     <TableHead>
                     <TableRow>
-                        <TableCell className="table-header">Subject</TableCell>
-                        <TableCell className="table-header">Result</TableCell>
+                        <TableCell className={classes.tableHeader}>Subject</TableCell>
+                        <TableCell className={classes.tableHeader}>Result</TableCell>
                     </TableRow>
                     </TableHead>
                     <TableBody>
                     {props.results.map((row) => (
                         <TableRow key={row.subject}>
-                            <TableCell className="table-row" component="th" scope="row">
+                            <TableCell className={classes.tableRow} component="th" scope="row">
                                 {row.subject}
                             </TableCell>
-                            <TableCell className="table-row">{row.result}</TableCell>
+                            <TableCell className={classes.tableRow}>{row.result}</TableCell>
                         </TableRow>
                     ))}
                     </TableBody>
@@ -76,6 +100,8 @@ const scResults = [
 ]
 
 export default function Education() {
+    const classes = useStyles();
+
     const [value, setValue] = useState(0);
     
     const handleChange = (event, value) => {
@@ -83,8 +109,8 @@ export default function Education() {
     }
 
     return (
-        <Paper square elevation={0} className="card-section-only-margin">
-            <AppBar className="education-app-bar" position="relative">
+        <Paper square elevation={0} className={classes.cardSectionOnlyMargin}>
+            <AppBar className={classes.educationAppBar} position="relative">
                 <Tabs
                     value={value} 
                     index={0} 
@@ -96,11 +122,11 @@ export default function Education() {
                 </Tabs>
             </AppBar>
             <TabPanel value={value} index={0}>
-                <p className="education-text"><u>Institution</u>: University of Mauritius</p>
-                <p className="education-text"><u>Course</u>: BSc (Hons) Computer Science</p>
-                <p className="education-text"><u>Year</u>: 2016 - 2019</p>
-                <p className="education-text"><u>Comments</u></p>
-                <p className="education-text">
+                <p className={classes.educationText}><u>Institution</u>: University of Mauritius</p>
+                <p className={classes.educationText}><u>Course</u>: BSc (Hons) Computer Science</p>
+                <p className={classes.educationText}><u>Year</u>: 2016 - 2019</p>
+                <p className={classes.educationText}><u>Comments</u></p>
+                <p className={classes.educationText}>
                     Graduated with a <b>1<sup>st</sup> class degree</b>, being exposed to topics such as: <br />
                     <ol>
                         <li>Object-Oriented Programming</li>

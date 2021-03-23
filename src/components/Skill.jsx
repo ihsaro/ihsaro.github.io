@@ -1,6 +1,10 @@
-import { Box, Grid, Typography, LinearProgress, Paper } from "@material-ui/core";
+import { Box, Grid, Typography, LinearProgress, Paper, makeStyles } from "@material-ui/core";
 
-import "./css/CardSectionCommon.css";
+const useStyles = makeStyles({
+    cardSectionOnlyMargin: {
+        margin: "20px"
+    }
+})
 
 function LinearProgressWithLabel(props) {
     return (
@@ -18,8 +22,11 @@ function LinearProgressWithLabel(props) {
 }
 
 export default function Skill() {
+
+    const classes = useStyles();
+
     return (
-        <Paper square elevation={0} className="card-section-only-margin">
+        <Paper square elevation={0} className={classes.cardSectionOnlyMargin}>
             <Grid
                 container
                 direction="row"
