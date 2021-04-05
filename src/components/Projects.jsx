@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { Button, Card, CardActionArea, CardMedia, CardContent, CardActions, Grid, Typography, Paper, makeStyles } from "@material-ui/core";
 
 const useStyles = makeStyles({
@@ -12,7 +13,7 @@ const useStyles = makeStyles({
     }
 });
 
-function ProjectCard() {
+function ProjectCard(props) {
 
     const classes = useStyles();
 
@@ -26,23 +27,22 @@ function ProjectCard() {
                 <CardActionArea>
                     <CardMedia
                         component="img"
-                        alt="Contemplative Reptile"
+                        alt="Not Available"
                         height="250"
                         image={process.env.PUBLIC_URL + '/not_available.jpg'}
-                        title="Contemplative Reptile"
+                        title="Not Available"
                     />
                     <CardContent>
-                        <Typography className={classes.cardFont} gutterBottom variant="h5" component="h2">
-                            Lizard
+                        <Typography className={classes.cardFont} gutterBottom component="h2">
+                            {props.name}
                         </Typography>
                         <Typography className={classes.cardFont} variant="body2" color="textSecondary" component="p">
-                            Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
-                            across all continents except Antarctica
+                            {props.description}
                         </Typography>
                     </CardContent>
                 </CardActionArea>
                 <CardActions>
-                    <Button className={classes.cardFont} size="small" color="primary">
+                    <Button href={props.html_url} className={classes.cardFont} size="small" color="primary">
                         Github Repository
                     </Button>
                 </CardActions>
@@ -53,26 +53,37 @@ function ProjectCard() {
 
 export default function Projects() {
 
+    const [repos, setRepos] = useState(null);
+    const [loading, setLoading] = useState(true);
+
+    useEffect(async () => {
+        const response = await fetch('https://api.github.com/users/ihsaro/repos');
+        const data = await response.json();
+        setRepos(data);
+        setLoading(false);
+    });
+
     const classes = useStyles();
 
-    return (
-        <Paper square elevation={0} className={classes.cardSectionOnlyMargin}>
-            <Grid
-                container
-                direction="row"
-                spacing={4}
-                alignItems="center"
-            >
-                <ProjectCard />
-                <ProjectCard />
-                <ProjectCard />
-                <ProjectCard />
-                <ProjectCard />
-                <ProjectCard />
-                <ProjectCard />
-                <ProjectCard />
-                <ProjectCard />
-            </Grid>
-        </Paper>
-    )
+    if (loading) {
+        return <p>Loading ...</p>
+    }
+    else {
+        return (
+            <Paper square elevation={0} className={classes.cardSectionOnlyMargin}>
+                <Grid
+                    container
+                    direction="row"
+                    spacing={4}
+                    alignItems="center"
+                >
+                    {
+                        repos.map((repo) => (
+                            <ProjectCard name={repo.name} description={repo.description} html_url={repo.html_url} />
+                        )
+                    )}
+                </Grid>
+            </Paper>
+        );
+    }
 }
