@@ -23,7 +23,7 @@ export default function About() {
         <Paper square elevation={1} className={classes.cardSection}>
             <p className={classes.cardTitle}>ABOUT ME</p>
             <p className={classes.cardText}>
-                I am a professional software developer seeking out new challenges and opportunities to grow my career. I am an open-source enthusiast who works with linux as my daily driver and my motivation to work is to make the world a place where technology is accessible to all 4 corners of the world, hence my love for open-source technologies.
+                Software Developer. Open Source Enthusiast. Linux. Linus Torvalds is my hero.
             </p>
         </Paper>
     )

@@ -23,7 +23,29 @@ const useStyles = makeStyles({
     ProgressBarColorGreen: {
         backgroundColor: "green" 
     }
-})
+});
+
+function createData(skillName, value) {
+    return {
+        skillName,
+        value
+    };
+}
+
+const rows = [
+	createData('HTML', 65),
+    createData('CSS', 50),
+    createData('Javascript', 70),
+    createData('Java', 80),
+    createData('C#', 80),
+    createData('SQL', 65),
+    createData('Git', 50),
+    createData('Linux', 60),
+    createData('Typescript', 60),
+    createData('React JS', 50),
+    createData('Python', 85),
+    createData('Django', 70)
+]
 
 function LinearProgressWithLabel(props) {
 
@@ -89,9 +111,21 @@ function LinearProgressWithLabel(props) {
     );
 }
 
-export default function Skill(props) {
+function SingleSkill(props) {
+    return (
+        <Grid
+            item
+            xs={12}
+            sm={6}
+        >
+            <LinearProgressWithLabel skillname={props.skillName} value={props.value} />
+        </Grid>
+    );
+}
 
-    const classes = useStyles(props);
+export default function Skill() {
+
+    const classes = useStyles();
 
     return (
         <Paper square elevation={0} className={classes.cardSectionOnlyMargin}>
@@ -100,76 +134,11 @@ export default function Skill(props) {
                 direction="row"
                 spacing={4}
             >
-                <Grid
-                    item
-                    xs={12}
-                    sm={6}
-                >
-                    <LinearProgressWithLabel skillname="HTML" value={65} backgroundcolor="red" />
-                </Grid>
-                <Grid
-                    item
-                    xs={12}
-                    sm={6}
-                >
-                    <LinearProgressWithLabel skillname="CSS" value={50} />
-                </Grid>
-                <Grid
-                    item
-                    xs={12}
-                    sm={6}
-                >
-                    <LinearProgressWithLabel skillname="Javascript" value={70} />
-                </Grid>
-                <Grid
-                    item
-                    xs={12}
-                    sm={6}
-                >
-                    <LinearProgressWithLabel skillname="Java" value={80} />
-                </Grid>
-                <Grid
-                    item
-                    xs={12}
-                    sm={6}
-                >
-                    <LinearProgressWithLabel skillname="C#" value={80} />
-                </Grid>
-                <Grid
-                    item
-                    xs={12}
-                    sm={6}
-                >
-                    <LinearProgressWithLabel skillname="SQL" value={65} />
-                </Grid>
-                <Grid
-                    item
-                    xs={12}
-                    sm={6}
-                >
-                    <LinearProgressWithLabel skillname="Git" value={50} />
-                </Grid>
-                <Grid
-                    item
-                    xs={12}
-                    sm={6}
-                >
-                    <LinearProgressWithLabel skillname="Linux" value={60} />
-                </Grid>
-                <Grid
-                    item
-                    xs={12}
-                    sm={6}
-                >
-                    <LinearProgressWithLabel skillname="Typescript" value={60} />
-                </Grid>
-                <Grid
-                    item
-                    xs={12}
-                    sm={6}
-                >
-                    <LinearProgressWithLabel skillname="React JS" value={50} />
-                </Grid>
+                {
+                    rows.map((row) => (
+                        <SingleSkill skillName={row.skillName} value={row.value} />
+                    )
+                )}
             </Grid>
         </Paper>
     )

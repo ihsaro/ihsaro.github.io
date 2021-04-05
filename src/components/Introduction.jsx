@@ -29,6 +29,7 @@ export default function Introduction() {
             alignItems="center"
             justify="center"
             direction="column"
+            id="home"
         >
             <img className={classes.profilePicture} src={ process.env.PUBLIC_URL + "/profile_picture.jpg" } />
             <p className={classes.subHeader}>PROGRAMMER | OPEN SOURCE ENTHUSIAST | BADMINTON PLAYER</p>

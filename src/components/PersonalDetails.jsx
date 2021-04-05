@@ -1,4 +1,4 @@
-import { Grid, Paper, makeStyles } from "@material-ui/core";
+import { Grid, Paper, makeStyles, Tooltip, Zoom } from "@material-ui/core";
 
 import CakeIcon from '@material-ui/icons/Cake';
 import MailIcon from '@material-ui/icons/Mail';
@@ -38,25 +38,33 @@ export default function PersonalDetails() {
                 <Grid
                     item
                 >
-                    <CakeIcon />
+                    <Tooltip arrow title="Date of Birth" TransitionComponent={Zoom} placement="top">
+                        <CakeIcon />
+                    </Tooltip>
                     <p className={`${classes.cardText} ${classes.personalDetailValue}`}>21/11/1997</p>
                 </Grid>
                 <Grid
                     item
                 >
-                    <MailIcon />
+                    <Tooltip arrow title="Email Address" TransitionComponent={Zoom} placement="top">
+                        <MailIcon />
+                    </Tooltip>
                     <p className={`${classes.cardText} ${classes.personalDetailValue}`}>idjazhossanee@gmail.com</p>
                 </Grid>
                 <Grid
                     item
                 >
-                    <PublicIcon />
+                    <Tooltip arrow title="Homeland" TransitionComponent={Zoom} placement="top">
+                        <PublicIcon />
+                    </Tooltip>
                     <p className={`${classes.cardText} ${classes.personalDetailValue}`}>Mauritius</p>
                 </Grid>
                 <Grid
                     item
                 >
-                    <TranslateIcon />
+                    <Tooltip arrow title="Languages Spoken" TransitionComponent={Zoom} placement="top">
+                        <TranslateIcon />
+                    </Tooltip>
                     <p className={`${classes.cardText} ${classes.personalDetailValue}`}>English | French | Creole</p>
                 </Grid>
             </Grid>

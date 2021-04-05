@@ -83,6 +83,7 @@ function DesktopNavigationBar() {
 				<Button 
 					color="inherit" 
 					className={classes.navigationBarButton} 
+					href="#work-experience"
 					classes={{label: classes.navigationBarButtonLabel}}
 				>
 					<WorkOutlineIcon className={classes.navigationBarIcon} />
@@ -91,6 +92,7 @@ function DesktopNavigationBar() {
 				<Button 
 					color="inherit" 
 					className={classes.navigationBarButton} 
+					href="#projects"
 					classes={{label: classes.navigationBarButtonLabel}}
 				>
 					<AccountTreeIcon className={classes.navigationBarIcon} />
