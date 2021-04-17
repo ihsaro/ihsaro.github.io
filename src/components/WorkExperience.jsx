@@ -116,7 +116,7 @@ export default function WorkExperience() {
 	return (
     <Paper square elevation={0} className={classes.cardSectionOnlyMargin}>
       <TableContainer component={Paper}>
-        <Table aria-label="collapsible table">
+        <Table>
           <TableHead>
             <TableRow>
               <TableCell />
