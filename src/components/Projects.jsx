@@ -58,11 +58,13 @@ function ProjectCard(props) {
                             <GitHubIcon style={{padding: "5px"}} />
                         </Link>
                     </Tooltip>
-                    <Tooltip arrow title="Description" TransitionComponent={Zoom} placement="bottom">
-                        <DescriptionIcon style={{padding: "5px"}} />
+                    <Tooltip className="descriptionTooltip" arrow title="Description" TransitionComponent={Zoom} placement="bottom">
+                        <Link color="inherit" href="#" onClick={(e) => e.preventDefault()}>
+                            <DescriptionIcon style={{padding: "5px"}} />
+                        </Link>
                     </Tooltip>
                     <Tooltip arrow title="Copy Git Clone Url" TransitionComponent={Zoom} placement="bottom">
-                        <Link color="inherit">
+                        <Link color="inherit" href="#" onClick={(e) => e.preventDefault()}>
                             <FileCopyIcon onClick={() => copyGitCloneUrlAndPopSuccessDialog(props.clone_url)} style={{padding: "5px"}} />
                         </Link>
                     </Tooltip>

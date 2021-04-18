@@ -115,6 +115,8 @@ export default function Education() {
                     value={value} 
                     index={0} 
                     onChange={handleChange}
+                    variant="scrollable"
+                    scrollButtons="auto"
                 >
                     <Tab label="Tertiary" />
                     <Tab label="Higher School Certificate" />
