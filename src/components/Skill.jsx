@@ -36,15 +36,15 @@ const rows = [
 	createData('HTML', 65),
     createData('CSS', 50),
     createData('Javascript', 70),
-    createData('Java', 80),
-    createData('C#', 80),
+    createData('Java', 60),
+    createData('C#/ .NET', 70),
     createData('SQL', 65),
-    createData('Git', 50),
+    createData('Git', 70),
     createData('Linux', 60),
     createData('Typescript', 60),
-    createData('React JS', 50),
-    createData('Python', 85),
-    createData('Django', 70)
+    createData('React JS', 60),
+    createData('Python', 80),
+    createData('Django', 80)
 ]
 
 function LinearProgressWithLabel(props) {

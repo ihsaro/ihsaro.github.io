@@ -1,8 +1,19 @@
 import { useEffect, useState } from "react";
-import { Box, Link, Grid, Tooltip, Paper, makeStyles, Snackbar, Zoom, Step } from "@material-ui/core";
+import { 
+    Link, 
+    Table,
+    TableBody,
+    TableCell,
+    TableContainer,
+    TableHead,
+    TableRow,
+    Tooltip, 
+    makeStyles, 
+    Snackbar, 
+    Zoom, 
+} from "@material-ui/core";
 import MuiAlert from "@material-ui/lab/Alert";
 import FileCopyIcon from '@material-ui/icons/FileCopy';
-import DescriptionIcon from '@material-ui/icons/Description';
 import GitHubIcon from '@material-ui/icons/GitHub';
 
 
@@ -22,10 +33,25 @@ function Alert(props) {
     return <MuiAlert elevation={6} variant="filled" {...props} />;
 }
 
-function ProjectCard(props) {
+export default function Projects() {
 
-    const classes = useStyles();
+    const [repos, setRepos] = useState(null);
+    const [loading, setLoading] = useState(true);
     const [open, setOpen] = useState(false);
+
+    const styles = makeStyles({
+        parentContainer: {
+            width: "calc(100% - 4vh)",
+            margin: "20px"
+        },
+        tableHeader: {
+            fontFamily: "'Montserrat', sans-serif",
+            fontWeight: "bold"
+        },
+        tableFont: {
+            fontFamily: "'Montserrat', sans-serif",
+        }
+    });
 
     const copyGitCloneUrlAndPopSuccessDialog = (clone_url) => {
         navigator.clipboard.writeText(clone_url);
@@ -40,55 +66,6 @@ function ProjectCard(props) {
         setOpen(false);
     };
 
-    return (
-        <Grid
-            item
-            xs={12}
-            sm={6}
-            md={3}
-            className={classes.cardFont}
-        >
-            <Paper elevation={3} className={classes.projectCard}>
-                <Box style={{padding: "5px"}}>
-                    <b>Title:</b> {props.name}
-                </Box>
-                <Box>
-                    <Tooltip arrow title="Link to Github Repo" TransitionComponent={Zoom} placement="bottom">
-                        <Link color="inherit" href={props.html_url}>
-                            <GitHubIcon style={{padding: "5px"}} />
-                        </Link>
-                    </Tooltip>
-                    <Tooltip className="descriptionTooltip" arrow title="Description" TransitionComponent={Zoom} placement="bottom">
-                        <Link color="inherit" href="#" onClick={(e) => e.preventDefault()}>
-                            <DescriptionIcon style={{padding: "5px"}} />
-                        </Link>
-                    </Tooltip>
-                    <Tooltip arrow title="Copy Git Clone Url" TransitionComponent={Zoom} placement="bottom">
-                        <Link color="inherit" href="#" onClick={(e) => e.preventDefault()}>
-                            <FileCopyIcon onClick={() => copyGitCloneUrlAndPopSuccessDialog(props.clone_url)} style={{padding: "5px"}} />
-                        </Link>
-                    </Tooltip>
-                    <Snackbar 
-                        anchorOrigin={{
-                            vertical: 'bottom',
-                            horizontal: 'right',
-                        }} 
-                        open={open} autoHideDuration={1000} onClose={handleClose}>
-                        <Alert onClose={handleClose} severity="success">
-                            URL Copied
-                        </Alert>
-                    </Snackbar>
-                </Box>
-            </Paper>
-        </Grid>
-    );
-}
-
-export default function Projects() {
-
-    const [repos, setRepos] = useState(null);
-    const [loading, setLoading] = useState(true);
-
     useEffect(() => {
         async function fetchGithubRepositories() {
             const response = await fetch('https://api.github.com/users/ihsaro/repos');
@@ -99,27 +76,58 @@ export default function Projects() {
         fetchGithubRepositories();
     }, []);
 
-    const classes = useStyles();
+    const classes = styles();
 
     if (loading) {
         return <p>Loading ...</p>
     }
     else {
         return (
-            <Paper square elevation={0} className={classes.cardSectionOnlyMargin}>
-                <Grid
-                    container
-                    direction="row"
-                    spacing={4}
-                    alignItems="center"
-                >
-                    {
-                        repos.map((repo) => (
-                            <ProjectCard name={repo.name} description={repo.description} html_url={repo.html_url} clone_url={repo.clone_url} />
-                        )
-                    )}
-                </Grid>
-            </Paper>
+            <TableContainer className={classes.parentContainer}>
+                <Table>
+                    <TableHead>
+                        <TableRow>
+                            <TableCell className={classes.tableHeader}>TITLE</TableCell>
+                            <TableCell className={classes.tableHeader}>DESCRIPTION</TableCell>
+                            <TableCell className={classes.tableHeader}>ACTIONS</TableCell>
+                        </TableRow>
+                    </TableHead>
+                    <TableBody>
+                    {repos.map((row) => (
+                        <TableRow
+                            key={row.name}
+                        >
+                            <TableCell className={classes.tableFont} component="th" scope="row">
+                                {row.name}
+                            </TableCell>
+                            <TableCell className={classes.tableFont}>{row.description}</TableCell>
+                            <TableCell>
+                                <Tooltip arrow title="Link to Github Repo" TransitionComponent={Zoom} placement="bottom">
+                                    <Link color="inherit" href={row.html_url} target="_blank">
+                                        <GitHubIcon style={{padding: "5px"}} />
+                                    </Link>
+                                </Tooltip>
+                                <Tooltip arrow title="Copy Git Clone Url" TransitionComponent={Zoom} placement="bottom">
+                                    <Link color="inherit" href="#" onClick={(e) => e.preventDefault()}>
+                                        <FileCopyIcon onClick={() => copyGitCloneUrlAndPopSuccessDialog(row.clone_url)} style={{padding: "5px"}} />
+                                    </Link>
+                                </Tooltip>
+                            </TableCell>
+                        </TableRow>
+                    ))}
+                    </TableBody>
+                </Table>
+                <Snackbar 
+                    anchorOrigin={{
+                        vertical: 'bottom',
+                        horizontal: 'right',
+                    }} 
+                    open={open} autoHideDuration={1000} onClose={handleClose}>
+                    <Alert onClose={handleClose} severity="success">
+                        URL Copied
+                    </Alert>
+                </Snackbar>
+            </TableContainer>
         );
     }
 }
