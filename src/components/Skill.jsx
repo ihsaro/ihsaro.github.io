@@ -44,7 +44,10 @@ const rows = [
     createData('Typescript', 60),
     createData('React JS', 60),
     createData('Python', 80),
-    createData('Django', 80)
+    createData('Django/ Django Rest Framework', 80),
+    createData('FastAPI', 60),
+    createData('Docker', 40),
+    createData('RabbitMQ/ Apache Kafka', 40)
 ]
 
 function LinearProgressWithLabel(props) {

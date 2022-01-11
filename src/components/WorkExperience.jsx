@@ -91,7 +91,7 @@ const rows = [
     'CERIDIAN MAURITIUS', 
     'JAN 2021 - PRESENT',
     'C#, Typescript, Javascript, Dojo, MSSQL, XML/ XSD, JSON, HTML, Stylus, Specflow, Selenium Coypu',
-    'Being currently a software developer, I am being exposed to more challenging experiences using the same suite of technologies.'
+    'Being currently a software developer, I am being exposed to more challenging experiences using the same suite of technologies as when I was an associate software developer.'
   ),
 	createData(
     'Associate Software Developer', 
@@ -99,6 +99,13 @@ const rows = [
     'JUN 2019 - DEC 2020',
     'C#, Typescript, Javascript, Dojo, MSSQL, XML/ XSD, JSON, HTML, Stylus, Specflow, Selenium Coypu',
     'Maintained existing solutions using C#, Dojo, HTML, Stylus, SQL and XML/XSD as well as implementing new functionalities using the same technologies. During this role, I also implemented the UI automation framework for my team\'s project, using specflow and selenium, which was challenging, but a fun and fulfilling experience.'
+  ),
+  createData(
+    'Intern', 
+    'CERIDIAN MAURITIUS', 
+    'MAY 2018 - AUG 2018',
+    'C#, Razor, CSS, Powershell',
+    'Worked on maintaining an internal tool. During this journey, I created a customizable sub-navigation bar using .NET and I also wrote basic powershell scripts for internal tools'
   ),
 	createData(
     'Freelance Webmaster', 
