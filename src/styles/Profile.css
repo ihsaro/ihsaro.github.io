@@ -1,0 +1,10 @@
+.parent-stack {
+    padding-top: 10vh;
+    height: 100%;
+}
+
+.profile-picture {
+    border-radius: 50%;
+    width: 250px;
+    display: "block";
+}
