@@ -2,6 +2,7 @@ import * as React from "react";
 
 import {
     Link,
+    Skeleton,
     Table,
     TableBody,
     TableCell,
@@ -17,6 +18,7 @@ import GitHubIcon from "@mui/icons-material/GitHub";
 
 export const Projects: React.FC = () => {
     const [repos, setRepos] = React.useState<any>([]);
+    const [loading, setLoading] = React.useState<boolean>(true);
 
     React.useEffect(() => {
         async function fetchGithubRepositories() {
@@ -25,11 +27,12 @@ export const Projects: React.FC = () => {
             );
             const data = await response.json();
             setRepos(data);
+            setLoading(false);
         }
         fetchGithubRepositories();
     }, []);
 
-    return (
+    return !loading ? (
         <TableContainer sx={{ margin: "20px", width: "91%" }}>
             <Table aria-label="simple table">
                 <TableHead>
@@ -98,8 +101,7 @@ export const Projects: React.FC = () => {
                                         href={repo.html_url}
                                         target="_blank"
                                     >
-                                        <GitHubIcon
-                                        />
+                                        <GitHubIcon />
                                     </Link>
                                 </Tooltip>
                                 {/* <Tooltip
@@ -127,5 +129,10 @@ export const Projects: React.FC = () => {
                 </TableBody>
             </Table>
         </TableContainer>
+    ) : (
+        <Skeleton
+            variant="rectangular"
+            sx={{ marginTop: "2vh", height: "50vh" }}
+        />
     );
 };

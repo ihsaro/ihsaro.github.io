@@ -1,6 +1,6 @@
 import * as React from "react";
 
-import { Button, Grid, Link, Paper, Stack } from "@mui/material";
+import { Button, Grid, Link, Paper, Stack, Typography } from "@mui/material";
 
 import { useTheme, ThemeProvider, createTheme } from "@mui/material/styles";
 
@@ -9,6 +9,7 @@ import AutoStoriesIcon from "@mui/icons-material/AutoStories";
 import Brightness4Icon from "@mui/icons-material/Brightness4";
 import Brightness7Icon from "@mui/icons-material/Brightness7";
 import BusinessCenterIcon from "@mui/icons-material/BusinessCenter";
+import EmailIcon from "@mui/icons-material/Email";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import HandymanIcon from "@mui/icons-material/Handyman";
@@ -73,6 +74,17 @@ const ProfileComponent: React.FC = () => {
                     Software Developer III At Ceridian Mauritius | Open Source
                     Enthusiast
                 </p>
+                <Stack
+                    direction="row"
+                    justifyContent="center"
+                    spacing={1}
+                    sx={{ marginBottom: "10px" }}
+                >
+                    <EmailIcon />
+                    <Typography sx={{ fontFamily: "'Nunito', sans-serif" }}>
+                        idjazhossanee@gmail.com
+                    </Typography>
+                </Stack>
                 <Stack direction="row" spacing={5} justifyContent="center">
                     <Link
                         target="_blank"

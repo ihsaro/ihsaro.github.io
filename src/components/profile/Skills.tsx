@@ -1,6 +1,6 @@
 import * as React from "react";
 
-import { Chip, Grid } from "@mui/material";
+import { Chip, Grid, Stack, Typography } from "@mui/material";
 
 import SentimentSatisfiedAltIcon from "@mui/icons-material/SentimentSatisfiedAlt";
 import TagFacesIcon from "@mui/icons-material/TagFaces";
@@ -113,6 +113,21 @@ export const Skills: React.FC = () => {
                     );
                 })}
             </Grid>
+
+            <Stack spacing={1} sx={{ marginTop: "20px" }}>
+                <Stack direction="row" spacing={1}>
+                    <TagFacesIcon />
+                    <Typography sx={{ fontFamily: "'Nunito', sans-serif" }}>
+                        Proficient
+                    </Typography>
+                </Stack>
+                <Stack direction="row" spacing={1}>
+                    <SentimentSatisfiedAltIcon />
+                    <Typography sx={{ fontFamily: "'Nunito', sans-serif" }}>
+                        Good
+                    </Typography>
+                </Stack>
+            </Stack>
         </div>
     );
 };
