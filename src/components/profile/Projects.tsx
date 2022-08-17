@@ -33,7 +33,7 @@ export const Projects: React.FC = () => {
     }, []);
 
     return !loading ? (
-        <TableContainer sx={{ margin: "20px", width: "91%" }}>
+        <TableContainer sx={{ margin: "20px auto", width: "91%" }}>
             <Table aria-label="simple table">
                 <TableHead>
                     <TableRow>
@@ -94,7 +94,7 @@ export const Projects: React.FC = () => {
                                     arrow
                                     title="Link to Github Repo"
                                     TransitionComponent={Zoom}
-                                    placement="right"
+                                    placement="top"
                                 >
                                     <Link
                                         color="inherit"
@@ -132,7 +132,7 @@ export const Projects: React.FC = () => {
     ) : (
         <Skeleton
             variant="rectangular"
-            sx={{ marginTop: "2vh", height: "50vh" }}
+            sx={{ margin: "2vh auto", height: "50vh", width: "90%" }}
         />
     );
 };

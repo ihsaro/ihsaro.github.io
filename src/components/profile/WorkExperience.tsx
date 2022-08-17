@@ -147,8 +147,7 @@ const rows = [
         "Associate Software Engineer",
         "Jun 2019 - Dec 2020",
         "Ceridian Mauritius",
-        "",
-        // "Kickstarted my career after my Bachelor's Degree by completely immersing myself as a full-stack developer, working on numerous features, both frontend and backend. During this cycle, I also built my team's UI Automation Framework using specflow and selenium.",
+        "Kickstarted my career after my Bachelor's Degree by completely immersing myself as a full-stack developer, working on numerous features, both frontend and backend. During this cycle, I also built my team's UI Automation Framework using specflow and selenium.",
         [
             "C#/ .NET",
             "TS/ JS",
@@ -179,7 +178,7 @@ const rows = [
 
 export const WorkExperience: React.FC = () => {
     return (
-        <TableContainer sx={{ margin: "20px", width: "91%" }}>
+        <TableContainer sx={{ margin: "20px auto", width: "91%" }}>
             <Table aria-label="collapsible table">
                 <TableHead>
                     <TableRow>

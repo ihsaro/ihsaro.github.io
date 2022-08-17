@@ -48,151 +48,154 @@ const ProfileComponent: React.FC = () => {
     ];
 
     return (
-        <Stack
+        <Grid
+            container
             className="parent-stack"
-            direction={{ sm: "column", lg: "row" }}
-            spacing={10}
             justifyContent="center"
             sx={{
                 bgcolor: "background.default",
                 color: "text.primary",
                 width: "100%",
-                minHeight: "90vh",
+                minHeight: "100vh",
             }}
         >
-            <Paper
-                elevation={0}
-                style={{ textAlign: "center", height: "100%" }}
-            >
-                <img
-                    className="profile-picture"
-                    src={process.env.PUBLIC_URL + "/profile_picture.jpg"}
-                    alt="Idjaz Hossanee"
-                />
-                <h2>HOSSANEE Muhammad Idjaz Ali</h2>
-                <p>
-                    Software Developer III At Ceridian Mauritius | Open Source
-                    Enthusiast
-                </p>
-                <Stack
-                    direction="row"
-                    justifyContent="center"
-                    spacing={1}
-                    sx={{ marginBottom: "10px" }}
+            <Grid item md={5} xs={12}>
+                <Paper
+                    elevation={0}
+                    style={{ textAlign: "center", height: "100%" }}
                 >
-                    <EmailIcon />
-                    <Typography sx={{ fontFamily: "'Nunito', sans-serif" }}>
-                        idjazhossanee@gmail.com
-                    </Typography>
-                </Stack>
-                <Stack direction="row" spacing={5} justifyContent="center">
-                    <Link
-                        target="_blank"
-                        href="https://www.linkedin.com/in/muhammad-idjaz-ali-hossanee-5b5913167"
-                    >
-                        <LinkedInIcon />
-                    </Link>
-                    <Link target="_blank" href="https://github.com/ihsaro">
-                        <GitHubIcon />
-                    </Link>
-                    <Link
-                        target="_blank"
-                        href="https://www.facebook.com/idjaz.hossanee.90"
-                    >
-                        <FacebookIcon />
-                    </Link>
-                </Stack>
-                <IconButton onClick={colorMode.toggleColorMode} color="inherit">
-                    {theme.palette.mode === "dark" ? (
-                        <Brightness7Icon />
-                    ) : (
-                        <Brightness4Icon />
-                    )}
-                </IconButton>
-                {theme.palette.mode} mode
-            </Paper>
-            <Paper elevation={0} sx={{ height: "100%" }}>
-                <Stack direction="column">
-                    <Grid
-                        container
-                        spacing={2}
+                    <img
+                        className="profile-picture"
+                        src={process.env.PUBLIC_URL + "/profile_picture.jpg"}
+                        alt="Idjaz Hossanee"
+                    />
+                    <h2>HOSSANEE Muhammad Idjaz Ali</h2>
+                    <p>
+                        Software Developer III At Ceridian Mauritius | Open Source
+                        Enthusiast
+                    </p>
+                    <Stack
+                        direction="row"
                         justifyContent="center"
-                        sx={{ marginTop: "5px" }}
+                        spacing={1}
+                        sx={{ marginBottom: "10px" }}
                     >
-                        <Grid item>
-                            <Button
-                                color="primary"
-                                startIcon={<HandymanIcon />}
-                                variant={
-                                    currentFeature === Features.SKILLS
-                                        ? "contained"
-                                        : "outlined"
-                                }
-                                onClick={(e) => {
-                                    setCurrentFeature(Features.SKILLS);
-                                }}
-                            >
-                                Skills
-                            </Button>
+                        <EmailIcon />
+                        <Typography sx={{ fontFamily: "'Nunito', sans-serif" }}>
+                            idjazhossanee@gmail.com
+                        </Typography>
+                    </Stack>
+                    <Stack direction="row" spacing={5} justifyContent="center">
+                        <Link
+                            target="_blank"
+                            href="https://www.linkedin.com/in/muhammad-idjaz-ali-hossanee-5b5913167"
+                        >
+                            <LinkedInIcon />
+                        </Link>
+                        <Link target="_blank" href="https://github.com/ihsaro">
+                            <GitHubIcon />
+                        </Link>
+                        <Link
+                            target="_blank"
+                            href="https://www.facebook.com/idjaz.hossanee.90"
+                        >
+                            <FacebookIcon />
+                        </Link>
+                    </Stack>
+                    <IconButton onClick={colorMode.toggleColorMode} color="inherit">
+                        {theme.palette.mode === "dark" ? (
+                            <Brightness7Icon />
+                        ) : (
+                            <Brightness4Icon />
+                        )}
+                    </IconButton>
+                    {theme.palette.mode} mode
+                </Paper>
+            </Grid>
+            <Grid item md={7}>
+                <Paper elevation={0} sx={{ height: "100%" }}>
+                    <Stack direction="column">
+                        <Grid
+                            container
+                            spacing={2}
+                            justifyContent="center"
+                            sx={{ marginTop: "5px" }}
+                        >
+                            <Grid item>
+                                <Button
+                                    color="primary"
+                                    startIcon={<HandymanIcon />}
+                                    variant={
+                                        currentFeature === Features.SKILLS
+                                            ? "contained"
+                                            : "outlined"
+                                    }
+                                    onClick={(e) => {
+                                        setCurrentFeature(Features.SKILLS);
+                                    }}
+                                >
+                                    Skills
+                                </Button>
+                            </Grid>
+                            <Grid item>
+                                <Button
+                                    color="primary"
+                                    startIcon={<AutoStoriesIcon />}
+                                    variant={
+                                        currentFeature === Features.EDUCATION
+                                            ? "contained"
+                                            : "outlined"
+                                    }
+                                    onClick={(e) => {
+                                        setCurrentFeature(Features.EDUCATION);
+                                    }}
+                                >
+                                    Education
+                                </Button>
+                            </Grid>
+                            <Grid item>
+                                <Button
+                                    color="primary"
+                                    startIcon={<BusinessCenterIcon />}
+                                    variant={
+                                        currentFeature === Features.WORK_EXPERIENCE
+                                            ? "contained"
+                                            : "outlined"
+                                    }
+                                    onClick={(e) => {
+                                        setCurrentFeature(Features.WORK_EXPERIENCE);
+                                    }}
+                                >
+                                    Work Experience
+                                </Button>
+                            </Grid>
+                            <Grid item>
+                                <Button
+                                    color="primary"
+                                    startIcon={<AccountTreeIcon />}
+                                    variant={
+                                        currentFeature === Features.PROJECTS
+                                            ? "contained"
+                                            : "outlined"
+                                    }
+                                    onClick={(e) => {
+                                        setCurrentFeature(Features.PROJECTS);
+                                    }}
+                                >
+                                    Projects
+                                </Button>
+                            </Grid>
                         </Grid>
-                        <Grid item>
-                            <Button
-                                color="primary"
-                                startIcon={<AutoStoriesIcon />}
-                                variant={
-                                    currentFeature === Features.EDUCATION
-                                        ? "contained"
-                                        : "outlined"
-                                }
-                                onClick={(e) => {
-                                    setCurrentFeature(Features.EDUCATION);
-                                }}
-                            >
-                                Education
-                            </Button>
-                        </Grid>
-                        <Grid item>
-                            <Button
-                                color="primary"
-                                startIcon={<BusinessCenterIcon />}
-                                variant={
-                                    currentFeature === Features.WORK_EXPERIENCE
-                                        ? "contained"
-                                        : "outlined"
-                                }
-                                onClick={(e) => {
-                                    setCurrentFeature(Features.WORK_EXPERIENCE);
-                                }}
-                            >
-                                Work Experience
-                            </Button>
-                        </Grid>
-                        <Grid item>
-                            <Button
-                                color="primary"
-                                startIcon={<AccountTreeIcon />}
-                                variant={
-                                    currentFeature === Features.PROJECTS
-                                        ? "contained"
-                                        : "outlined"
-                                }
-                                onClick={(e) => {
-                                    setCurrentFeature(Features.PROJECTS);
-                                }}
-                            >
-                                Projects
-                            </Button>
-                        </Grid>
-                    </Grid>
-                    <Paper elevation={0}>
-                        {
-                            features.find((e) => e.name === currentFeature)
-                                ?.component
-                        }
-                    </Paper>
-                </Stack>
-            </Paper>
-        </Stack>
+                        <Paper elevation={0}>
+                            {
+                                features.find((e) => e.name === currentFeature)
+                                    ?.component
+                            }
+                        </Paper>
+                    </Stack>
+                </Paper>
+            </Grid>
+        </Grid>
     );
 };
 
