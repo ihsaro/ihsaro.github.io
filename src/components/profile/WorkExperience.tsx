@@ -109,7 +109,7 @@ const rows = [
         "Software Engineer III",
         "May 2022 - Present",
         "Ceridian Mauritius",
-        "",
+        "My role during this phase was pretty much the same as my previous role, except that it had a lot of mentoring.",
         [
             "C#/ .NET",
             "TS/ JS",
@@ -128,7 +128,7 @@ const rows = [
         "Software Engineer",
         "Jan 2021 - Apr 2022",
         "Ceridian Mauritius",
-        "",
+        "During this cycle, I was presented with more challenging tasks around the same domain that I was working on as an associate. I also started working extensively on building RESTFul Web Services later on this journey.",
         [
             "C#/ .NET",
             "TS/ JS",
@@ -147,7 +147,7 @@ const rows = [
         "Associate Software Engineer",
         "Jun 2019 - Dec 2020",
         "Ceridian Mauritius",
-        "Kickstarted my career after my Bachelor's Degree by completely immersing myself as a full-stack developer, working on numerous features, both frontend and backend. During this cycle, I also built my team's UI Automation Framework using specflow and selenium.",
+        "Kickstarted my career after my Bachelor's Degree, completely immersing myself as a full-stack developer, working on numerous features, both frontend and backend. During this cycle, I also built my team's UI Automation Framework using specflow and selenium.",
         [
             "C#/ .NET",
             "TS/ JS",
@@ -157,12 +157,11 @@ const rows = [
             "SQL Server",
             "XML",
             "JSON",
-            "REST",
             "Specflow",
             "Selenium",
         ]
     ),
-    createData("Intern", "May 2018 - Aug 2018", "Ceridian Mauritius", "", [
+    createData("Intern", "May 2018 - Aug 2018", "Ceridian Mauritius", "Engaged in my mandatory 3 months of internship (as part of the university curriculum), creating a customizable navigation bar using Razor and writing some helper Powershell scripts.", [
         "C#/ .NET",
         "Razor",
         "Powershell",
@@ -171,7 +170,7 @@ const rows = [
         "Freelance Webmaster",
         "May 2016 - Sep 2016",
         "Proximity BBDO Mauritius",
-        "Maintained existing web based solutions using the following:",
+        "Maintained existing web based solutions using mainly the Sitecore CMS.",
         ["Sitecore", "HTML"]
     ),
 ];

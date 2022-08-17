@@ -71,8 +71,8 @@ const ProfileComponent: React.FC = () => {
                     />
                     <h2>HOSSANEE Muhammad Idjaz Ali</h2>
                     <p>
-                        Software Developer III At Ceridian Mauritius | Open Source
-                        Enthusiast
+                        Software Developer III At Ceridian Mauritius | Open
+                        Source Enthusiast
                     </p>
                     <Stack
                         direction="row"
@@ -90,19 +90,22 @@ const ProfileComponent: React.FC = () => {
                             target="_blank"
                             href="https://www.linkedin.com/in/muhammad-idjaz-ali-hossanee-5b5913167"
                         >
-                            <LinkedInIcon />
+                            <LinkedInIcon sx={{ color: theme.palette.mode === "dark" ? "#ffffff" : "#000000" }} />
                         </Link>
                         <Link target="_blank" href="https://github.com/ihsaro">
-                            <GitHubIcon />
+                            <GitHubIcon sx={{ color: theme.palette.mode === "dark" ? "#ffffff" : "#000000" }} />
                         </Link>
                         <Link
                             target="_blank"
                             href="https://www.facebook.com/idjaz.hossanee.90"
                         >
-                            <FacebookIcon />
+                            <FacebookIcon sx={{ color: theme.palette.mode === "dark" ? "#ffffff" : "#000000" }} />
                         </Link>
                     </Stack>
-                    <IconButton onClick={colorMode.toggleColorMode} color="inherit">
+                    <IconButton
+                        onClick={colorMode.toggleColorMode}
+                        color="inherit"
+                    >
                         {theme.palette.mode === "dark" ? (
                             <Brightness7Icon />
                         ) : (
@@ -158,12 +161,15 @@ const ProfileComponent: React.FC = () => {
                                     color="primary"
                                     startIcon={<BusinessCenterIcon />}
                                     variant={
-                                        currentFeature === Features.WORK_EXPERIENCE
+                                        currentFeature ===
+                                        Features.WORK_EXPERIENCE
                                             ? "contained"
                                             : "outlined"
                                     }
                                     onClick={(e) => {
-                                        setCurrentFeature(Features.WORK_EXPERIENCE);
+                                        setCurrentFeature(
+                                            Features.WORK_EXPERIENCE
+                                        );
                                     }}
                                 >
                                     Work Experience
