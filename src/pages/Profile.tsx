@@ -90,16 +90,37 @@ const ProfileComponent: React.FC = () => {
                             target="_blank"
                             href="https://www.linkedin.com/in/muhammad-idjaz-ali-hossanee-5b5913167"
                         >
-                            <LinkedInIcon sx={{ color: theme.palette.mode === "dark" ? "#ffffff" : "#000000" }} />
+                            <LinkedInIcon
+                                sx={{
+                                    color:
+                                        theme.palette.mode === "dark"
+                                            ? "#ffffff"
+                                            : "#000000",
+                                }}
+                            />
                         </Link>
                         <Link target="_blank" href="https://github.com/ihsaro">
-                            <GitHubIcon sx={{ color: theme.palette.mode === "dark" ? "#ffffff" : "#000000" }} />
+                            <GitHubIcon
+                                sx={{
+                                    color:
+                                        theme.palette.mode === "dark"
+                                            ? "#ffffff"
+                                            : "#000000",
+                                }}
+                            />
                         </Link>
                         <Link
                             target="_blank"
                             href="https://www.facebook.com/idjaz.hossanee.90"
                         >
-                            <FacebookIcon sx={{ color: theme.palette.mode === "dark" ? "#ffffff" : "#000000" }} />
+                            <FacebookIcon
+                                sx={{
+                                    color:
+                                        theme.palette.mode === "dark"
+                                            ? "#ffffff"
+                                            : "#000000",
+                                }}
+                            />
                         </Link>
                     </Stack>
                     <IconButton

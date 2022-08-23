@@ -11,8 +11,6 @@ export const Skills: React.FC = () => {
         { label: "Python", strengthRate: <TagFacesIcon /> },
         { label: "TS/JS", strengthRate: <TagFacesIcon /> },
         { label: "Java", strengthRate: <SentimentSatisfiedAltIcon /> },
-        { label: "SQL Server", strengthRate: <TagFacesIcon /> },
-        { label: "PostgreSQL", strengthRate: <SentimentSatisfiedAltIcon /> },
     ];
 
     const webFrameworks: { label: string; strengthRate: any }[] = [

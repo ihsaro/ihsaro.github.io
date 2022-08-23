@@ -161,11 +161,13 @@ const rows = [
             "Selenium",
         ]
     ),
-    createData("Intern", "May 2018 - Aug 2018", "Ceridian Mauritius", "Engaged in my mandatory 3 months of internship (as part of the university curriculum), creating a customizable navigation bar using Razor and writing some helper Powershell scripts.", [
-        "C#/ .NET",
-        "Razor",
-        "Powershell",
-    ]),
+    createData(
+        "Intern",
+        "May 2018 - Aug 2018",
+        "Ceridian Mauritius",
+        "Engaged in my mandatory 3 months of internship (as part of the university curriculum), creating a customizable navigation bar using Razor and writing some helper Powershell scripts.",
+        ["C#/ .NET", "Razor", "Powershell"]
+    ),
     createData(
         "Freelance Webmaster",
         "May 2016 - Sep 2016",
