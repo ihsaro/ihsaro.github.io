@@ -71,7 +71,7 @@ const ProfileComponent: React.FC = () => {
                     />
                     <h2>HOSSANEE Muhammad Idjaz Ali</h2>
                     <p>
-                        Software Developer III At Ceridian Mauritius | Open
+                        Software Developer At Objectivity Mauritius | Open
                         Source Enthusiast
                     </p>
                     <Stack
@@ -228,15 +228,32 @@ const ProfileComponent: React.FC = () => {
 
 function Profile() {
     const [mode, setMode] = React.useState<"light" | "dark">("light");
+
+    React.useEffect(() => {
+        let theme = localStorage.getItem("theme");
+
+        if (
+            theme !== undefined &&
+            theme !== null &&
+            (theme === "light" || theme === "dark")
+        )
+            setMode(theme);
+        else setMode("light");
+    }, []);
+
     const colorMode = React.useMemo(
         () => ({
             toggleColorMode: () => {
                 setMode((prevMode) =>
                     prevMode === "light" ? "dark" : "light"
                 );
+                localStorage.setItem(
+                    "theme",
+                    mode === "light" ? "dark" : "light"
+                );
             },
         }),
-        []
+        [mode]
     );
 
     const theme = React.useMemo(

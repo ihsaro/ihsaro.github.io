@@ -24,6 +24,10 @@ export const Skills: React.FC = () => {
         { label: "Spring Boot", strengthRate: <SentimentSatisfiedAltIcon /> },
     ];
 
+    const mobileFrameworks: { label: string; strengthRate: any }[] = [
+        { label: "React Native", strengthRate: <SentimentSatisfiedAltIcon /> },
+    ];
+
     const databases: { label: string; strengthRate: any }[] = [
         { label: "SQL Server", strengthRate: <TagFacesIcon /> },
         { label: "PostgreSQL", strengthRate: <SentimentSatisfiedAltIcon /> },
@@ -49,7 +53,7 @@ export const Skills: React.FC = () => {
             <Grid container spacing={2}>
                 {programmingLanguages.map((name) => {
                     return (
-                        <Grid item>
+                        <Grid item key={name.label}>
                             <Chip
                                 icon={name.strengthRate}
                                 label={name.label}
@@ -66,7 +70,24 @@ export const Skills: React.FC = () => {
             <Grid container spacing={2}>
                 {webFrameworks.map((name) => {
                     return (
-                        <Grid item>
+                        <Grid item key={name.label}>
+                            <Chip
+                                icon={name.strengthRate}
+                                label={name.label}
+                                variant="outlined"
+                                sx={{ fontFamily: "'Nunito', sans-serif" }}
+                            />
+                        </Grid>
+                    );
+                })}
+            </Grid>
+
+            <h3>Mobile Frameworks</h3>
+
+            <Grid container spacing={2}>
+                {mobileFrameworks.map((name) => {
+                    return (
+                        <Grid item key={name.label}>
                             <Chip
                                 icon={name.strengthRate}
                                 label={name.label}
@@ -83,7 +104,7 @@ export const Skills: React.FC = () => {
             <Grid container spacing={2}>
                 {databases.map((name) => {
                     return (
-                        <Grid item>
+                        <Grid item key={name.label}>
                             <Chip
                                 icon={name.strengthRate}
                                 label={name.label}
@@ -100,7 +121,7 @@ export const Skills: React.FC = () => {
             <Grid container spacing={2}>
                 {others.map((name) => {
                     return (
-                        <Grid item>
+                        <Grid item key={name.label}>
                             <Chip
                                 icon={name.strengthRate}
                                 label={name.label}
