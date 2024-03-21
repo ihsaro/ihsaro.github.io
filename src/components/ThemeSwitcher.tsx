@@ -1,16 +1,16 @@
-import { MonitorIcon, Moon, MoonIcon, Sun, SunIcon } from "lucide-react"
+import { MonitorIcon, Moon, MoonIcon, Sun, SunIcon } from "lucide-react";
 
-import { Button } from "@/components/ui/button"
+import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
-import { useTheme } from "@/contexts/ThemeContext"
+} from "@/components/ui/dropdown-menu";
+import { useTheme } from "@/contexts/ThemeContext";
 
 const ThemeSwitcher: React.FC = () => {
-  const { setTheme } = useTheme()
+  const { setTheme } = useTheme();
 
   return (
     <DropdownMenu>
@@ -22,18 +22,27 @@ const ThemeSwitcher: React.FC = () => {
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
-        <DropdownMenuItem className="flex flex-row gap-2 items-center" onClick={() => setTheme("light")}>
+        <DropdownMenuItem
+          className="flex flex-row gap-2 items-center"
+          onClick={() => setTheme("light")}
+        >
           <SunIcon size={16} /> Light
         </DropdownMenuItem>
-        <DropdownMenuItem className="flex flex-row gap-2 items-center" onClick={() => setTheme("dark")}>
+        <DropdownMenuItem
+          className="flex flex-row gap-2 items-center"
+          onClick={() => setTheme("dark")}
+        >
           <MoonIcon size={16} /> Dark
         </DropdownMenuItem>
-        <DropdownMenuItem className="flex flex-row gap-2 items-center" onClick={() => setTheme("system")}>
+        <DropdownMenuItem
+          className="flex flex-row gap-2 items-center"
+          onClick={() => setTheme("system")}
+        >
           <MonitorIcon size={16} /> System
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
-  )
-}
+  );
+};
 
 export default ThemeSwitcher;

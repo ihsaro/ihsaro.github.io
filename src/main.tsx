@@ -1,36 +1,36 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import './index.css'
-import { RouterProvider, createBrowserRouter } from 'react-router-dom'
-import Home from '@/pages/Home.tsx'
-import { ThemeProvider } from '@/contexts/ThemeContext'
-import About from './pages/About'
-import Contact from './pages/Contact'
-import Projects from './pages/Projects'
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import Home from "@/pages/Home.tsx";
+import { ThemeProvider } from "@/contexts/ThemeContext";
+import About from "./pages/About";
+import Contact from "./pages/Contact";
+import Projects from "./pages/Projects";
 
 const router = createBrowserRouter([
   {
     path: "about",
-    element: <About />
+    element: <About />,
   },
   {
     path: "contact",
-    element: <Contact />
+    element: <Contact />,
   },
   {
     path: "Projects",
-    element: <Projects />
+    element: <Projects />,
   },
   {
     path: "",
-    element: <Home />
-  }
-])
+    element: <Home />,
+  },
+]);
 
-ReactDOM.createRoot(document.getElementById('root')!).render(
+ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
       <RouterProvider router={router} />
     </ThemeProvider>
   </React.StrictMode>,
-)
+);
