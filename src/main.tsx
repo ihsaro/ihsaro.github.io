@@ -9,28 +9,28 @@ import Contact from "./pages/Contact";
 import Projects from "./pages/Projects";
 
 const router = createBrowserRouter([
-  {
-    path: "about",
-    element: <About />,
-  },
-  {
-    path: "contact",
-    element: <Contact />,
-  },
-  {
-    path: "Projects",
-    element: <Projects />,
-  },
-  {
-    path: "",
-    element: <Home />,
-  },
+    {
+        path: "about",
+        element: <About />,
+    },
+    {
+        path: "contact",
+        element: <Contact />,
+    },
+    {
+        path: "Projects",
+        element: <Projects />,
+    },
+    {
+        path: "",
+        element: <Home />,
+    },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
-  <React.StrictMode>
-    <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
-      <RouterProvider router={router} />
-    </ThemeProvider>
-  </React.StrictMode>,
+    <React.StrictMode>
+        <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
+            <RouterProvider router={router} />
+        </ThemeProvider>
+    </React.StrictMode>,
 );

@@ -1,12 +1,12 @@
-import { NavigationBar } from "@/components";
+import { PageLayout } from "@/components";
 import * as React from "react";
 
 const About: React.FC = () => {
-  return (
-    <>
-      <NavigationBar selected="ABOUT" />
-    </>
-  );
+    return (
+        <PageLayout selected="ABOUT">
+            <div></div>
+        </PageLayout>
+    );
 };
 
 export default About;

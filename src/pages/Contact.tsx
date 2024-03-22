@@ -1,12 +1,12 @@
-import { NavigationBar } from "@/components";
+import { PageLayout } from "@/components";
 import * as React from "react";
 
 const Contact: React.FC = () => {
-  return (
-    <>
-      <NavigationBar selected="CONTACT" />
-    </>
-  );
+    return (
+        <PageLayout selected="CONTACT">
+            <div></div>
+        </PageLayout>
+    );
 };
 
 export default Contact;
