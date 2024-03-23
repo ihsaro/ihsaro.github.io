@@ -3,7 +3,7 @@ import {
     HomeIcon,
     BriefcaseIcon,
     MenuIcon,
-    PhoneIcon,
+    NotebookPenIcon,
 } from "lucide-react";
 import * as React from "react";
 import { ThemeSwitcher } from "@/components";
@@ -16,7 +16,7 @@ import {
 import { Button } from "@/components/ui/button";
 
 interface Props {
-    selected?: "WORK_EXPERIENCE" | "PROJECTS" | "CONTACT" | "HOME";
+    selected?: "WORK_EXPERIENCE" | "PROJECTS" | "BLOGS" | "HOME";
 }
 
 const NavigationBar: React.FC<Props> = (props) => {
@@ -61,14 +61,10 @@ const NavigationBar: React.FC<Props> = (props) => {
                     </a>
                     <a
                         className="flex flex-row items-center gap-2 transition-opacity duration-200 hover:opacity-75"
-                        href="contact"
+                        href="blogs"
                     >
-                        <PhoneIcon size={16} />
-                        {props.selected === "CONTACT" ? (
-                            <u>Contact</u>
-                        ) : (
-                            "Contact"
-                        )}
+                        <NotebookPenIcon size={16} />
+                        {props.selected === "BLOGS" ? <u>Blogs</u> : "Blogs"}
                     </a>
                 </div>
                 <ThemeSwitcher />
@@ -124,13 +120,13 @@ const NavigationBar: React.FC<Props> = (props) => {
                         <DropdownMenuItem className="flex flex-row items-center gap-2">
                             <a
                                 className="flex flex-row items-center gap-2 transition-opacity duration-200 hover:opacity-75"
-                                href="contact"
+                                href="blogs"
                             >
-                                <PhoneIcon size={16} />
-                                {props.selected === "CONTACT" ? (
-                                    <u>Contact</u>
+                                <NotebookPenIcon size={16} />
+                                {props.selected === "BLOGS" ? (
+                                    <u>Blogs</u>
                                 ) : (
-                                    "Contact"
+                                    "Blogs"
                                 )}
                             </a>
                         </DropdownMenuItem>

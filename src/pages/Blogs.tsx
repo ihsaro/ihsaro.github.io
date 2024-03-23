@@ -1,12 +1,12 @@
 import { PageLayout } from "@/components";
 import * as React from "react";
 
-const Contact: React.FC = () => {
+const Blogs: React.FC = () => {
     return (
-        <PageLayout selected="CONTACT">
+        <PageLayout selected="BLOGS">
             <div></div>
         </PageLayout>
     );
 };
 
-export default Contact;
+export default Blogs;
