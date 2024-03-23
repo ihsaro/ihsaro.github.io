@@ -23,19 +23,19 @@ const ThemeSwitcher: React.FC = () => {
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end">
                 <DropdownMenuItem
-                    className="flex flex-row gap-2 items-center"
+                    className="flex flex-row items-center gap-2"
                     onClick={() => setTheme("light")}
                 >
                     <SunIcon size={16} /> Light
                 </DropdownMenuItem>
                 <DropdownMenuItem
-                    className="flex flex-row gap-2 items-center"
+                    className="flex flex-row items-center gap-2"
                     onClick={() => setTheme("dark")}
                 >
                     <MoonIcon size={16} /> Dark
                 </DropdownMenuItem>
                 <DropdownMenuItem
-                    className="flex flex-row gap-2 items-center"
+                    className="flex flex-row items-center gap-2"
                     onClick={() => setTheme("system")}
                 >
                     <MonitorIcon size={16} /> System

@@ -16,7 +16,7 @@ interface Props {
 const NavigationBar: React.FC<Props> = (props) => {
     return (
         <>
-            <nav className="mx-28 mt-7 justify-between md:flex flex-row hidden">
+            <nav className="mx-28 mt-7 hidden flex-row justify-between md:flex">
                 <a href="/">
                     <img
                         className="w-10 rounded-full"
@@ -25,14 +25,14 @@ const NavigationBar: React.FC<Props> = (props) => {
                 </a>
                 <div className="flex flex-row gap-5">
                     <a
-                        className="flex flex-row gap-2 items-center hover:opacity-75 transition-opacity duration-200"
+                        className="flex flex-row items-center gap-2 transition-opacity duration-200 hover:opacity-75"
                         href="about"
                     >
                         <InfoIcon size={16} />
                         {props.selected === "ABOUT" ? <u>About</u> : "About"}
                     </a>
                     <a
-                        className="flex flex-row gap-2 items-center hover:opacity-75 transition-opacity duration-200"
+                        className="flex flex-row items-center gap-2 transition-opacity duration-200 hover:opacity-75"
                         href="projects"
                     >
                         <FolderGit2Icon size={16} />
@@ -43,7 +43,7 @@ const NavigationBar: React.FC<Props> = (props) => {
                         )}
                     </a>
                     <a
-                        className="flex flex-row gap-2 items-center hover:opacity-75 transition-opacity duration-200"
+                        className="flex flex-row items-center gap-2 transition-opacity duration-200 hover:opacity-75"
                         href="contact"
                     >
                         <PhoneIcon size={16} />
@@ -56,7 +56,7 @@ const NavigationBar: React.FC<Props> = (props) => {
                 </div>
                 <ThemeSwitcher />
             </nav>
-            <nav className="mx-10 mt-7 justify-between flex flex-row md:hidden">
+            <nav className="mx-10 mt-7 flex flex-row justify-between md:hidden">
                 <DropdownMenu>
                     <DropdownMenuTrigger asChild>
                         <Button variant="outline" size="icon">
@@ -65,9 +65,9 @@ const NavigationBar: React.FC<Props> = (props) => {
                         </Button>
                     </DropdownMenuTrigger>
                     <DropdownMenuContent className="ml-10" align="end">
-                        <DropdownMenuItem className="flex flex-row gap-2 items-center">
+                        <DropdownMenuItem className="flex flex-row items-center gap-2">
                             <a
-                                className="flex flex-row gap-2 items-center hover:opacity-75 transition-opacity duration-200"
+                                className="flex flex-row items-center gap-2 transition-opacity duration-200 hover:opacity-75"
                                 href="about"
                             >
                                 <InfoIcon size={16} />
@@ -78,9 +78,9 @@ const NavigationBar: React.FC<Props> = (props) => {
                                 )}
                             </a>
                         </DropdownMenuItem>
-                        <DropdownMenuItem className="flex flex-row gap-2 items-center">
+                        <DropdownMenuItem className="flex flex-row items-center gap-2">
                             <a
-                                className="flex flex-row gap-2 items-center hover:opacity-75 transition-opacity duration-200"
+                                className="flex flex-row items-center gap-2 transition-opacity duration-200 hover:opacity-75"
                                 href="projects"
                             >
                                 <FolderGit2Icon size={16} />
@@ -91,9 +91,9 @@ const NavigationBar: React.FC<Props> = (props) => {
                                 )}
                             </a>
                         </DropdownMenuItem>
-                        <DropdownMenuItem className="flex flex-row gap-2 items-center">
+                        <DropdownMenuItem className="flex flex-row items-center gap-2">
                             <a
-                                className="flex flex-row gap-2 items-center hover:opacity-75 transition-opacity duration-200"
+                                className="flex flex-row items-center gap-2 transition-opacity duration-200 hover:opacity-75"
                                 href="contact"
                             >
                                 <PhoneIcon size={16} />
