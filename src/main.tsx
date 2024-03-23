@@ -4,14 +4,14 @@ import "./index.css";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Home from "@/pages/Home.tsx";
 import { ThemeProvider } from "@/contexts/ThemeContext";
-import About from "./pages/About";
+import WorkExperience from "./pages/WorkExperience";
 import Contact from "./pages/Contact";
 import Projects from "./pages/Projects";
 
 const router = createBrowserRouter([
     {
-        path: "about",
-        element: <About />,
+        path: "work-experience",
+        element: <WorkExperience />,
     },
     {
         path: "contact",

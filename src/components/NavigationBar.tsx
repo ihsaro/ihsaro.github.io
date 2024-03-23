@@ -1,7 +1,7 @@
 import {
     FolderGit2Icon,
     HomeIcon,
-    InfoIcon,
+    BriefcaseIcon,
     MenuIcon,
     PhoneIcon,
 } from "lucide-react";
@@ -16,7 +16,7 @@ import {
 import { Button } from "@/components/ui/button";
 
 interface Props {
-    selected?: "ABOUT" | "PROJECTS" | "CONTACT" | "HOME";
+    selected?: "WORK_EXPERIENCE" | "PROJECTS" | "CONTACT" | "HOME";
 }
 
 const NavigationBar: React.FC<Props> = (props) => {
@@ -39,10 +39,14 @@ const NavigationBar: React.FC<Props> = (props) => {
                     </a>
                     <a
                         className="flex flex-row items-center gap-2 transition-opacity duration-200 hover:opacity-75"
-                        href="about"
+                        href="work-experience"
                     >
-                        <InfoIcon size={16} />
-                        {props.selected === "ABOUT" ? <u>About</u> : "About"}
+                        <BriefcaseIcon size={16} />
+                        {props.selected === "WORK_EXPERIENCE" ? (
+                            <u>Work Experience</u>
+                        ) : (
+                            "Work Experience"
+                        )}
                     </a>
                     <a
                         className="flex flex-row items-center gap-2 transition-opacity duration-200 hover:opacity-75"
@@ -94,13 +98,13 @@ const NavigationBar: React.FC<Props> = (props) => {
                         <DropdownMenuItem className="flex flex-row items-center gap-2">
                             <a
                                 className="flex flex-row items-center gap-2 transition-opacity duration-200 hover:opacity-75"
-                                href="about"
+                                href="work-experience"
                             >
-                                <InfoIcon size={16} />
-                                {props.selected === "ABOUT" ? (
-                                    <u>About</u>
+                                <BriefcaseIcon size={16} />
+                                {props.selected === "WORK_EXPERIENCE" ? (
+                                    <u>Work Experience</u>
                                 ) : (
-                                    "About"
+                                    "Work Experience"
                                 )}
                             </a>
                         </DropdownMenuItem>

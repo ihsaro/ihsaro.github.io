@@ -27,7 +27,14 @@ const Home: React.FC = () => {
                                 1<sup>st</sup> class degree
                             </u>{" "}
                             while studying computer science at the University of
-                            Mauritius.
+                            Mauritius. Reach out to me on{" "}
+                            <a
+                                className="underline"
+                                href="mailto:idjazhossanee@gmail.com"
+                            >
+                                idjazhossanee@gmail.com
+                            </a>{" "}
+                            or in one of my socials below &#128512;
                         </span>
                     </article>
                     <article className="flex flex-row gap-5">
@@ -50,7 +57,7 @@ const Home: React.FC = () => {
                             <GitHubLogoIcon className="h-6 w-6" />
                         </a>
                     </article>
-                    <article className="mt-5 flex flex-wrap justify-center gap-5">
+                    <article className="mt-5 flex flex-col flex-wrap justify-center gap-5 md:flex-row">
                         {[
                             {
                                 title: "C#/ .NET",
@@ -83,7 +90,7 @@ const Home: React.FC = () => {
                                     "Being no master of CSS, Tailwind came to my rescue.",
                             },
                         ].map((item) => (
-                            <Card className="basis-1/5 pr-7">
+                            <Card className="pr-7 md:basis-2/5 xl:basis-1/5">
                                 <CardHeader className="text-2xl">
                                     {item.title}
                                 </CardHeader>
@@ -93,7 +100,7 @@ const Home: React.FC = () => {
                             </Card>
                         ))}
                         <DialogTrigger asChild>
-                            <Card className="basis-1/5 pr-7 transition-opacity duration-200 hover:cursor-pointer hover:opacity-50">
+                            <Card className="pr-7 transition-opacity duration-200 hover:cursor-pointer hover:opacity-50 md:basis-2/5 xl:basis-1/5">
                                 <CardHeader className="text-3xl">
                                     And much more
                                 </CardHeader>

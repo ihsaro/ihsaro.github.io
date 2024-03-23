@@ -1,12 +1,12 @@
 import { PageLayout } from "@/components";
 import * as React from "react";
 
-const About: React.FC = () => {
+const WorkExperience: React.FC = () => {
     return (
-        <PageLayout selected="ABOUT">
+        <PageLayout selected="WORK_EXPERIENCE">
             <div></div>
         </PageLayout>
     );
 };
 
-export default About;
+export default WorkExperience;
