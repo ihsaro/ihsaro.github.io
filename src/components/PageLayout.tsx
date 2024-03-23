@@ -3,7 +3,7 @@ import { Footer, NavigationBar } from "@/components";
 
 interface Props {
     children: any;
-    selected?: "ABOUT" | "PROJECTS" | "CONTACT";
+    selected?: "ABOUT" | "PROJECTS" | "CONTACT" | "HOME";
 }
 
 const PageLayout: React.FC<Props> = (props) => {

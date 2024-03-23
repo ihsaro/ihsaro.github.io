@@ -6,16 +6,29 @@ import * as React from "react";
 
 const Home: React.FC = () => {
     return (
-        <PageLayout>
+        <PageLayout selected="HOME">
             <Dialog>
                 <section className="flex flex-col gap-4">
                     <article className="text-4xl font-bold">
                         Software crafter, linux fan, souls game addict
                     </article>
-                    <article className="text-lg">
-                        I am Idjaz, a senior software engineer based in
-                        Mauritius, with a primary focus around C#/ .NET and
-                        React development.
+                    <article className="flex flex-wrap items-center text-lg">
+                        <span>Hello there</span>
+                        <img
+                            className="h-10"
+                            src="./2525058_ben kenobi_jedi_obi - wan kenobi_star wars_icon.png"
+                        />
+                        <span className="text-justify">
+                            I am Idjaz, a senior software engineer with{" "}
+                            <u>4+ years of industry experience</u> based in
+                            Mauritius, with a primary focus around C#/ .NET and
+                            React development. I graduated with a{" "}
+                            <u>
+                                1<sup>st</sup> class degree
+                            </u>{" "}
+                            while studying computer science at the University of
+                            Mauritius.
+                        </span>
                     </article>
                     <article className="flex flex-row gap-5">
                         <a

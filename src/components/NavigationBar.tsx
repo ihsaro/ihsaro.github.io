@@ -1,4 +1,10 @@
-import { FolderGit2Icon, InfoIcon, MenuIcon, PhoneIcon } from "lucide-react";
+import {
+    FolderGit2Icon,
+    HomeIcon,
+    InfoIcon,
+    MenuIcon,
+    PhoneIcon,
+} from "lucide-react";
 import * as React from "react";
 import { ThemeSwitcher } from "@/components";
 import {
@@ -10,7 +16,7 @@ import {
 import { Button } from "@/components/ui/button";
 
 interface Props {
-    selected?: "ABOUT" | "PROJECTS" | "CONTACT";
+    selected?: "ABOUT" | "PROJECTS" | "CONTACT" | "HOME";
 }
 
 const NavigationBar: React.FC<Props> = (props) => {
@@ -24,6 +30,13 @@ const NavigationBar: React.FC<Props> = (props) => {
                     ></img>
                 </a>
                 <div className="flex flex-row gap-5">
+                    <a
+                        className="flex flex-row items-center gap-2 transition-opacity duration-200 hover:opacity-75"
+                        href="/"
+                    >
+                        <HomeIcon size={16} />
+                        {props.selected === "HOME" ? <u>Home</u> : "Home"}
+                    </a>
                     <a
                         className="flex flex-row items-center gap-2 transition-opacity duration-200 hover:opacity-75"
                         href="about"
@@ -65,6 +78,19 @@ const NavigationBar: React.FC<Props> = (props) => {
                         </Button>
                     </DropdownMenuTrigger>
                     <DropdownMenuContent className="ml-10" align="end">
+                        <DropdownMenuItem className="flex flex-row items-center gap-2">
+                            <a
+                                className="flex flex-row items-center gap-2 transition-opacity duration-200 hover:opacity-75"
+                                href="/"
+                            >
+                                <HomeIcon size={16} />
+                                {props.selected === "HOME" ? (
+                                    <u>Home</u>
+                                ) : (
+                                    "Home"
+                                )}
+                            </a>
+                        </DropdownMenuItem>
                         <DropdownMenuItem className="flex flex-row items-center gap-2">
                             <a
                                 className="flex flex-row items-center gap-2 transition-opacity duration-200 hover:opacity-75"
