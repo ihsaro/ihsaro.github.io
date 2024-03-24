@@ -6,9 +6,9 @@ interface Props {
 
 type TimelineItem = {
     period: string;
-    tagline: string;
+    taglines: Array<string>;
     title: string;
-    description: string;
+    description: React.ReactNode;
 };
 
 const Timeline: React.FC<Props> = (props) => {
@@ -21,8 +21,10 @@ const Timeline: React.FC<Props> = (props) => {
                         <time className="left-0 mb-3 inline-flex h-6 w-40 translate-y-0.5 items-center justify-center rounded-full bg-emerald-100 p-3 text-xs font-semibold uppercase text-emerald-600 sm:absolute sm:mb-0">
                             {item.period}
                         </time>
-                        <div className="text-base underline">
-                            {item.tagline}
+                        <div className="flex flex-col text-base underline">
+                            {item.taglines.map((tagline) => (
+                                <span>{tagline}</span>
+                            ))}
                         </div>
                     </div>
                     <div>{item.description}</div>
