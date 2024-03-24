@@ -89,9 +89,26 @@ const Home: React.FC = () => {
                                 description:
                                     "Being no master of CSS, Tailwind came to my rescue.",
                             },
+                            {
+                                title: "Visual Studio",
+                                description: "My primary C#/ .NET IDE",
+                            },
+                            {
+                                title: "Visual Studio Code",
+                                description: "My go-to code editor.",
+                            },
+                            {
+                                title: "Linux & Bash",
+                                description:
+                                    "I love linux, been using linux for 5+ years, with the terminal.",
+                            },
+                            {
+                                title: "Git",
+                                description: "Every developer uses it.",
+                            },
                         ].map((item) => (
                             <Card className="pr-7 md:basis-2/5 xl:basis-1/5">
-                                <CardHeader className="text-2xl">
+                                <CardHeader className="pb-2 pt-3 text-2xl">
                                     {item.title}
                                 </CardHeader>
                                 <CardDescription className="ml-7 pb-5 text-base">
@@ -101,10 +118,10 @@ const Home: React.FC = () => {
                         ))}
                         <DialogTrigger asChild>
                             <Card className="pr-7 transition-opacity duration-200 hover:cursor-pointer hover:opacity-50 md:basis-2/5 xl:basis-1/5">
-                                <CardHeader className="text-3xl">
+                                <CardHeader className="pb-2 pt-3 text-2xl">
                                     And much more
                                 </CardHeader>
-                                <CardDescription className="ml-7 pb-5 text-lg">
+                                <CardDescription className="ml-7 pb-5 text-base">
                                     Click to find out
                                 </CardDescription>
                             </Card>
