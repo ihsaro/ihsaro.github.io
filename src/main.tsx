@@ -6,7 +6,6 @@ import Home from "@/pages/Home.tsx";
 import { ThemeProvider } from "@/contexts/ThemeContext";
 import WorkExperience from "./pages/WorkExperience";
 import Blogs from "./pages/Blogs";
-import Projects from "./pages/Projects";
 
 const router = createBrowserRouter([
     {
@@ -16,10 +15,6 @@ const router = createBrowserRouter([
     {
         path: "blogs",
         element: <Blogs />,
-    },
-    {
-        path: "Projects",
-        element: <Projects />,
     },
     {
         path: "",

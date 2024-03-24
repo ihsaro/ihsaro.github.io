@@ -1,5 +1,4 @@
 import {
-    FolderGit2Icon,
     HomeIcon,
     BriefcaseIcon,
     MenuIcon,
@@ -16,10 +15,38 @@ import {
 import { Button } from "@/components/ui/button";
 
 interface Props {
-    selected?: "WORK_EXPERIENCE" | "PROJECTS" | "BLOGS" | "HOME";
+    selected: "WORK_EXPERIENCE" | "BLOGS" | "HOME";
 }
 
 const NavigationBar: React.FC<Props> = (props) => {
+    const renderCurrentPageTitle = (
+        selected: "WORK_EXPERIENCE" | "BLOGS" | "HOME",
+    ): React.ReactNode => {
+        switch (selected) {
+            case "HOME":
+                return (
+                    <div className="flex flex-row items-center gap-2">
+                        <HomeIcon size={16} />
+                        Home
+                    </div>
+                );
+            case "WORK_EXPERIENCE":
+                return (
+                    <div className="flex flex-row items-center gap-2">
+                        <BriefcaseIcon size={16} />
+                        Work Experience
+                    </div>
+                );
+            case "BLOGS":
+                return (
+                    <div className="flex flex-row items-center gap-2">
+                        <NotebookPenIcon size={16} />
+                        Blogs
+                    </div>
+                );
+        }
+    };
+
     return (
         <>
             <nav className="mx-28 mt-7 hidden flex-row justify-between md:flex">
@@ -50,17 +77,6 @@ const NavigationBar: React.FC<Props> = (props) => {
                     </a>
                     <a
                         className="flex flex-row items-center gap-2 transition-opacity duration-200 hover:opacity-75"
-                        href="projects"
-                    >
-                        <FolderGit2Icon size={16} />
-                        {props.selected === "PROJECTS" ? (
-                            <u>Projects</u>
-                        ) : (
-                            "Projects"
-                        )}
-                    </a>
-                    <a
-                        className="flex flex-row items-center gap-2 transition-opacity duration-200 hover:opacity-75"
                         href="blogs"
                     >
                         <NotebookPenIcon size={16} />
@@ -74,13 +90,13 @@ const NavigationBar: React.FC<Props> = (props) => {
                     <DropdownMenuTrigger asChild>
                         <Button variant="outline" size="icon">
                             <MenuIcon />
-                            <span className="sr-only">Toggle theme</span>
+                            <span className="sr-only">Toggle menu</span>
                         </Button>
                     </DropdownMenuTrigger>
                     <DropdownMenuContent className="ml-10" align="end">
                         <DropdownMenuItem className="flex flex-row items-center gap-2">
                             <a
-                                className="flex flex-row items-center gap-2 transition-opacity duration-200 hover:opacity-75"
+                                className="flex flex-row items-center gap-2 text-base transition-opacity duration-200 hover:opacity-75"
                                 href="/"
                             >
                                 <HomeIcon size={16} />
@@ -93,7 +109,7 @@ const NavigationBar: React.FC<Props> = (props) => {
                         </DropdownMenuItem>
                         <DropdownMenuItem className="flex flex-row items-center gap-2">
                             <a
-                                className="flex flex-row items-center gap-2 transition-opacity duration-200 hover:opacity-75"
+                                className="flex flex-row items-center gap-2 text-base transition-opacity duration-200 hover:opacity-75"
                                 href="work-experience"
                             >
                                 <BriefcaseIcon size={16} />
@@ -106,20 +122,7 @@ const NavigationBar: React.FC<Props> = (props) => {
                         </DropdownMenuItem>
                         <DropdownMenuItem className="flex flex-row items-center gap-2">
                             <a
-                                className="flex flex-row items-center gap-2 transition-opacity duration-200 hover:opacity-75"
-                                href="projects"
-                            >
-                                <FolderGit2Icon size={16} />
-                                {props.selected === "PROJECTS" ? (
-                                    <u>Projects</u>
-                                ) : (
-                                    "Projects"
-                                )}
-                            </a>
-                        </DropdownMenuItem>
-                        <DropdownMenuItem className="flex flex-row items-center gap-2">
-                            <a
-                                className="flex flex-row items-center gap-2 transition-opacity duration-200 hover:opacity-75"
+                                className="flex flex-row items-center gap-2 text-base transition-opacity duration-200 hover:opacity-75"
                                 href="blogs"
                             >
                                 <NotebookPenIcon size={16} />
@@ -132,6 +135,7 @@ const NavigationBar: React.FC<Props> = (props) => {
                         </DropdownMenuItem>
                     </DropdownMenuContent>
                 </DropdownMenu>
+                {renderCurrentPageTitle(props.selected)}
                 <ThemeSwitcher />
             </nav>
         </>

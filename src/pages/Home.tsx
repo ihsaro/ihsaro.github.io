@@ -12,13 +12,15 @@ const Home: React.FC = () => {
                     <article className="text-4xl font-bold">
                         Software crafter, linux fan, souls game addict
                     </article>
-                    <article className="flex flex-wrap items-center text-lg">
-                        <span>Hello there</span>
-                        <img
-                            className="h-10"
-                            src="./2525058_ben kenobi_jedi_obi - wan kenobi_star wars_icon.png"
-                        />
-                        <span className="text-justify">
+                    <article className="flex flex-col gap-3 text-lg">
+                        <div className="flex flex-row items-center">
+                            <span>Hello there</span>
+                            <img
+                                className="h-10"
+                                src="./2525058_ben kenobi_jedi_obi - wan kenobi_star wars_icon.png"
+                            />
+                        </div>
+                        <span>
                             I am Idjaz, a senior software engineer with{" "}
                             <u>4+ years of industry experience</u> based in
                             Mauritius, with a primary focus around C#/ .NET and
@@ -27,7 +29,21 @@ const Home: React.FC = () => {
                                 1<sup>st</sup> class degree
                             </u>{" "}
                             while studying computer science at the University of
-                            Mauritius. Reach out to me on{" "}
+                            Mauritius.
+                        </span>
+                        <span>
+                            Check out my pet projects on my{" "}
+                            <a
+                                className="underline"
+                                href="https://github.com/ihsaro?tab=repositories"
+                                target="_blank"
+                            >
+                                github's repositories
+                            </a>
+                            .
+                        </span>
+                        <span>
+                            Reach out to me on{" "}
                             <a
                                 className="underline"
                                 href="mailto:idjazhossanee@gmail.com"
@@ -111,7 +127,7 @@ const Home: React.FC = () => {
                                 <CardHeader className="pb-2 pt-3 text-2xl">
                                     {item.title}
                                 </CardHeader>
-                                <CardDescription className="ml-7 pb-5 text-base">
+                                <CardDescription className="ml-6 pb-5 text-base">
                                     {item.description}
                                 </CardDescription>
                             </Card>
@@ -121,7 +137,7 @@ const Home: React.FC = () => {
                                 <CardHeader className="pb-2 pt-3 text-2xl">
                                     And much more
                                 </CardHeader>
-                                <CardDescription className="ml-7 pb-5 text-base">
+                                <CardDescription className="ml-6 pb-5 text-base">
                                     Click to find out
                                 </CardDescription>
                             </Card>
