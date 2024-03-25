@@ -89,37 +89,52 @@ const SkillsDialog: React.FC = () => {
                             {
                                 title: "Python",
                                 description:
-                                    "This is my primary bread and butter.",
+                                    "Its simplicity made me learn and love it, didn't build too many fancy things with it besides some pet projects.",
                             },
                             {
                                 title: "Java",
                                 description:
-                                    "The only UI library that makes sense for me to specialize in.",
+                                    "The first OOP language that I learned back when I was studying for my bachelor's degree, even did my final year project using JavaFX, so it holds a special place in my heart",
                             },
                             {
                                 title: "Django/ Django REST Framework",
                                 description:
-                                    "Most developers should know one of them or both, and I do both.",
+                                    "My love for python made me learn one of the most popular web frameworks of its tribe.",
                             },
                             {
                                 title: "FastAPI",
                                 description:
-                                    "Been using only this as a DB in professional capacity (4+ years).",
+                                    "Seeing it back in 2019 as a rising star, I wanted to experiment with it in pet projects, and it is one of the most, if not the simplest way to create REST APIs in my opinion.",
                             },
                             {
                                 title: "Spring Boot",
                                 description:
-                                    "Developing mainly on the web, I know both, but not a master of CSS.",
+                                    "Before falling in love with .NET, since I knew java pretty well, I was studying the basics of spring boot, along with spring security and spring data JPA.",
+                            },
+                            {
+                                title: "DOJO Toolkit",
+                                description:
+                                    "Despite using it on a professional capacity for 3+ years, it did not quite have a place in my heart.",
                             },
                             {
                                 title: "React Native",
                                 description:
-                                    "Being no master of CSS, Tailwind came to my rescue.",
+                                    "Knowing React primarily, React Native felt natural to me, despite I don't see it as the best cross platform mobile framework.",
                             },
                             {
-                                title: "React Native",
+                                title: "Flutter",
                                 description:
-                                    "Being no master of CSS, Tailwind came to my rescue.",
+                                    "Not satisfied with what React Native brought, I started taking a look at flutter basics, and in my opinion, it is the best way to build cross platform apps, and should be used in 90% of business cases.",
+                            },
+                            {
+                                title: "PostgreSQL",
+                                description:
+                                    "Despite using it only in pet projects and hackathons, its open-source nature made me more curious about it, and I don't regret using it so far.",
+                            },
+                            {
+                                title: "Specflow & Selenium",
+                                description:
+                                    "Being responsible to build a UI automation framework, I opted for the BDD approach, hence using specflow, then binding the steps to methods where selenium was used to automate actions on the page.",
                             },
                         ].map((item) => (
                             <AccordionItem value={item.title}>
