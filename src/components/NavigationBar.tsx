@@ -53,7 +53,7 @@ const NavigationBar: React.FC<Props> = (props) => {
                 <a href="/">
                     <img
                         className="w-10 rounded-full"
-                        src="./profile_picture.jpg"
+                        src="/profile_picture.jpg"
                     ></img>
                 </a>
                 <div className="flex flex-row gap-5">
@@ -66,7 +66,7 @@ const NavigationBar: React.FC<Props> = (props) => {
                     </a>
                     <a
                         className="flex flex-row items-center gap-2 transition-opacity duration-200 hover:opacity-75"
-                        href="work-experience"
+                        href="/work-experience"
                     >
                         <BriefcaseIcon size={16} />
                         {props.selected === "WORK_EXPERIENCE" ? (
@@ -77,7 +77,7 @@ const NavigationBar: React.FC<Props> = (props) => {
                     </a>
                     <a
                         className="flex flex-row items-center gap-2 transition-opacity duration-200 hover:opacity-75"
-                        href="blogs"
+                        href="/blogs"
                     >
                         <NotebookPenIcon size={16} />
                         {props.selected === "BLOGS" ? <u>Blogs</u> : "Blogs"}
@@ -110,7 +110,7 @@ const NavigationBar: React.FC<Props> = (props) => {
                         <DropdownMenuItem className="flex flex-row items-center gap-2">
                             <a
                                 className="flex flex-row items-center gap-2 text-base transition-opacity duration-200 hover:opacity-75"
-                                href="work-experience"
+                                href="/work-experience"
                             >
                                 <BriefcaseIcon size={16} />
                                 {props.selected === "WORK_EXPERIENCE" ? (
@@ -123,7 +123,7 @@ const NavigationBar: React.FC<Props> = (props) => {
                         <DropdownMenuItem className="flex flex-row items-center gap-2">
                             <a
                                 className="flex flex-row items-center gap-2 text-base transition-opacity duration-200 hover:opacity-75"
-                                href="blogs"
+                                href="/blogs"
                             >
                                 <NotebookPenIcon size={16} />
                                 {props.selected === "BLOGS" ? (
