@@ -8,6 +8,12 @@ const WorkExperience: React.FC = () => {
                 <Timeline
                     items={[
                         {
+                            period: "APR 2024 - Present",
+                            title: "Bocasay Maurice",
+                            taglines: ["Senior Software Engineer"],
+                            description: <div></div>,
+                        },
+                        {
                             period: "SEP 2022 - MAR 2024",
                             title: "Objectivity Software Services Ltd.",
                             taglines: [
