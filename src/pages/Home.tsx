@@ -22,7 +22,7 @@ const Home: React.FC = () => {
                         </div>
                         <span>
                             I am Idjaz, a senior software engineer with{" "}
-                            <u>4+ years of industry experience</u> based in
+                            <u>5+ years of industry experience</u> based in
                             Mauritius, with a primary focus around C#/ .NET and
                             React development. I graduated with a{" "}
                             <u>

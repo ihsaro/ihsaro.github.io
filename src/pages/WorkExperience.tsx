@@ -10,8 +10,34 @@ const WorkExperience: React.FC = () => {
                         {
                             period: "APR 2024 - Present",
                             title: "Bocasay Maurice",
-                            taglines: ["Senior Software Engineer"],
-                            description: <div></div>,
+                            taglines: [
+                                "Senior Software Engineer (APR 2024 - Present)",
+                            ],
+                            description: (
+                                <div>
+                                    <ol className="ml-4 list-decimal">
+                                        <li>
+                                            Working on various full-stack
+                                            features on a platform revolving
+                                            around secure file storage and
+                                            transfer, using C#/ .NET, Razor, SQL
+                                            Server, HTML5, CSS3, Bootstrap &
+                                            JQuery.
+                                        </li>
+                                        <li>
+                                            Held a knowledge sharing session on
+                                            .NET & React integration, detailing
+                                            3 ways how it could be done so,
+                                            while explaining the process, the
+                                            pros and the cons of each approach.
+                                        </li>
+                                        <li>
+                                            ... More coming soon, working hard
+                                            &#128170;
+                                        </li>
+                                    </ol>
+                                </div>
+                            ),
                         },
                         {
                             period: "SEP 2022 - MAR 2024",
