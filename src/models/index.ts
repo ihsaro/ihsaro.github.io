@@ -1,3 +1,3 @@
-import TableOfContentItem from "./TableOfContentItem.ts";
+import BlogInventoryDefinition from "@/models/BlogInventoryDefinition";
 
-export type { TableOfContentItem };
+export type { BlogInventoryDefinition };

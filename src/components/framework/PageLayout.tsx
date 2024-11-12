@@ -1,9 +1,9 @@
 import * as React from "react";
-import { Footer, NavigationBar } from "@/components";
+import { Footer, NavigationBar } from "@/components/framework";
 
 interface Props {
-    children: any;
-    selected: "WORK_EXPERIENCE" | "BLOGS" | "HOME";
+    children: React.ReactNode;
+    selected?: "WORK_EXPERIENCE" | "BLOGS" | "HOME";
 }
 
 const PageLayout: React.FC<Props> = (props) => {

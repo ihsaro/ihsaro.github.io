@@ -1,4 +1,5 @@
-import { PageLayout, SkillsDialog } from "@/components";
+import { PageLayout } from "@/components/framework";
+import { SkillsDialog } from "@/components/routes/home";
 import { Card, CardDescription, CardHeader } from "@/components/ui/card";
 import { Dialog, DialogTrigger } from "@/components/ui/dialog";
 import { GitHubLogoIcon } from "@radix-ui/react-icons";

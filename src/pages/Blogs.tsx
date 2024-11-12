@@ -1,57 +1,53 @@
-import { PageLayout } from "@/components";
+/*import { PageLayout } from "@/components/framework";
+import {
+    TableOfContent,
+    TableOfContentBreadcrumb,
+} from "@/components/routes/blogs";*/
 import * as React from "react";
+import { PageLayout } from "@/components/framework";
+/*
+import { Sheet, SheetTrigger } from "@/components/ui/sheet";
+import { Button } from "@/components/ui/button";
+import { SquareMenu } from "lucide-react";
+import { useLocation } from "react-router-dom";
+import { BlogInventoryDefinition } from "@/models";
+import { BlogInventory } from "@/constants";
+import NotFound from "@/pages/NotFound";*/
 
 const Blogs: React.FC = () => {
     /*
-    const data: Array<TableOfContentItem> = [
-        {
-            name: "Item 1",
-            url: "/item1",
-            children: [
-                { name: "Subitem 1-1", url: "/item1/subitem1", children: [] },
-                { name: "Subitem 1-2", url: "/item1/subitem2", children: [] },
-                {
-                    name: "Subitem 1-3",
-                    url: "/item1/subitem3",
-                    children: [
-                        {
-                            name: "Subitem 1-3-1",
-                            url: "/item1/subitem3/subitem1",
-                            children: [],
-                        },
-                    ],
-                },
-            ],
-        },
-        {
-            name: "Item 2",
-            url: "/item2",
-            children: [],
-        },
-        {
-            name: "Item 3",
-            url: "/item3",
-            children: [
-                { name: "Subitem 3-1", url: "/item3/subitem1", children: [] },
-                {
-                    name: "Subitem 3-2",
-                    url: "/item3/subitem2",
-                    children: [
-                        {
-                            name: "Subitem 3-2-1",
-                            url: "/item3/subitem2/subitem1",
-                            children: [],
-                        },
-                        {
-                            name: "Subitem 3-2-2",
-                            url: "/item3/subitem2/subitem2",
-                            children: [],
-                        },
-                    ],
-                },
-            ],
-        },
-    ];
+    const location = useLocation();
+    const { pathname } = location;
+
+    const blog: BlogInventoryDefinition | undefined = BlogInventory.find(
+        (x) => x.url === pathname,
+    );
+
+    if (blog) {
+        return (
+            <PageLayout selected="BLOGS">
+                <Sheet>
+                    <div className="flex flex-row items-center gap-3">
+                        <SheetTrigger asChild>
+                            <Button
+                                className="flex flex-row gap-2"
+                                variant="outline"
+                            >
+                                <SquareMenu size={20} /> Table of contents
+                            </Button>
+                        </SheetTrigger>
+                        {pathname !== "/blogs" && (
+                            <TableOfContentBreadcrumb blog={blog} />
+                        )}
+                    </div>
+                    {blog && <blog.component />}
+                    <TableOfContent blog={blog} />
+                </Sheet>
+            </PageLayout>
+        );
+    } else {
+        return <NotFound />;
+    }
      */
 
     return (

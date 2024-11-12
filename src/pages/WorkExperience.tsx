@@ -1,5 +1,6 @@
-import { PageLayout, Timeline } from "@/components";
 import * as React from "react";
+import { PageLayout } from "@/components/framework";
+import { Timeline } from "@/components/routes/work-experience";
 
 const WorkExperience: React.FC = () => {
     return (

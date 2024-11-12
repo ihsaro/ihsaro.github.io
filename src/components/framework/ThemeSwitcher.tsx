@@ -1,13 +1,13 @@
 import { MonitorIcon, Moon, MoonIcon, Sun, SunIcon } from "lucide-react";
 
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/ui/button.tsx";
 import {
     DropdownMenu,
     DropdownMenuContent,
     DropdownMenuItem,
     DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
-import { useTheme } from "@/contexts/ThemeContext";
+} from "@/components/ui/dropdown-menu.tsx";
+import { useTheme } from "@/contexts/ThemeContext.tsx";
 
 const ThemeSwitcher: React.FC = () => {
     const { setTheme } = useTheme();

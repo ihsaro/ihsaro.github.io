@@ -5,14 +5,14 @@ import {
     NotebookPenIcon,
 } from "lucide-react";
 import * as React from "react";
-import { ThemeSwitcher } from "@/components";
+import { ThemeSwitcher } from "@/components/framework";
 import {
     DropdownMenu,
     DropdownMenuContent,
     DropdownMenuItem,
     DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
-import { Button } from "@/components/ui/button";
+} from "@/components/ui/dropdown-menu.tsx";
+import { Button } from "@/components/ui/button.tsx";
 
 interface Props {
     selected: "WORK_EXPERIENCE" | "BLOGS" | "HOME";
@@ -20,7 +20,7 @@ interface Props {
 
 const NavigationBar: React.FC<Props> = (props) => {
     const renderCurrentPageTitle = (
-        selected: "WORK_EXPERIENCE" | "BLOGS" | "HOME",
+        selected?: "WORK_EXPERIENCE" | "BLOGS" | "HOME",
     ): React.ReactNode => {
         switch (selected) {
             case "HOME":
@@ -54,6 +54,7 @@ const NavigationBar: React.FC<Props> = (props) => {
                     <img
                         className="w-10 rounded-full"
                         src="/profile_picture.jpg"
+                        alt="Profile picture"
                     ></img>
                 </a>
                 <div className="flex flex-row gap-5">

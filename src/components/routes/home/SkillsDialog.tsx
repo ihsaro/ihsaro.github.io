@@ -3,14 +3,14 @@ import {
     DialogContent,
     DialogDescription,
     DialogHeader,
-} from "@/components/ui/dialog";
+} from "@/components/ui/dialog.tsx";
 import {
     Accordion,
     AccordionContent,
     AccordionItem,
     AccordionTrigger,
-} from "@/components/ui/accordion";
-import { ScrollArea } from "./ui/scroll-area";
+} from "@/components/ui/accordion.tsx";
+import { ScrollArea } from "@/components/ui/scroll-area.tsx";
 
 const SkillsDialog: React.FC = () => {
     return (
