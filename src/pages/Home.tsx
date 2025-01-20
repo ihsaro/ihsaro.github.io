@@ -4,8 +4,18 @@ import { Card, CardDescription, CardHeader } from "@/components/ui/card";
 import { Dialog, DialogTrigger } from "@/components/ui/dialog";
 import { GitHubLogoIcon } from "@radix-ui/react-icons";
 import * as React from "react";
+import { getDateDifference } from "@/lib/utils.ts";
+import {
+    InitialLinuxUsageDate,
+    InitialWorkDate,
+} from "@/constants/EventDates.ts";
 
 const Home: React.FC = () => {
+    const { years, months, days } = getDateDifference(
+        new Date(),
+        InitialWorkDate,
+    );
+
     return (
         <PageLayout selected="HOME">
             <Dialog>
@@ -23,7 +33,11 @@ const Home: React.FC = () => {
                         </div>
                         <span>
                             I am Idjaz, a senior software engineer with{" "}
-                            <u>5+ years of industry experience</u> based in
+                            <u>
+                                {years} years, {months} months and {days} days
+                                of industry experience
+                            </u>{" "}
+                            (yep, precisely calculated daily &#128517;) based in
                             Mauritius, with a primary focus around C#/ .NET and
                             React development. I graduated with a{" "}
                             <u>
@@ -94,7 +108,7 @@ const Home: React.FC = () => {
                             {
                                 title: "SQL Server",
                                 description:
-                                    "Been using only this as a DB in professional capacity (4+ years).",
+                                    "Been using only this as a DB in professional capacity.",
                             },
                             {
                                 title: "HTML5/ CSS3",
@@ -107,8 +121,13 @@ const Home: React.FC = () => {
                                     "Being no master of CSS, Tailwind came to my rescue.",
                             },
                             {
-                                title: "Visual Studio",
+                                title: "Jetbrains Rider",
                                 description: "My primary C#/ .NET IDE",
+                            },
+                            {
+                                title: "Visual Studio",
+                                description:
+                                    "Was my primary C#/ .NET IDE, until I decided to go for jetbrains products.",
                             },
                             {
                                 title: "Visual Studio Code",
@@ -116,8 +135,7 @@ const Home: React.FC = () => {
                             },
                             {
                                 title: "Linux & Bash",
-                                description:
-                                    "I love linux, been using linux for 5+ years, with the terminal.",
+                                description: `I love linux, been using linux for ${getDateDifference(new Date(), InitialLinuxUsageDate).years}+ years, with the terminal.`,
                             },
                             {
                                 title: "Git",

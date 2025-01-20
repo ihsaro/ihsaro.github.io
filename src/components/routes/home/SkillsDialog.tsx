@@ -11,6 +11,8 @@ import {
     AccordionTrigger,
 } from "@/components/ui/accordion.tsx";
 import { ScrollArea } from "@/components/ui/scroll-area.tsx";
+import { getDateDifference } from "@/lib/utils.ts";
+import { InitialLinuxUsageDate } from "@/constants/EventDates.ts";
 
 const SkillsDialog: React.FC = () => {
     return (
@@ -41,7 +43,7 @@ const SkillsDialog: React.FC = () => {
                             {
                                 title: "SQL Server",
                                 description:
-                                    "Been using only this as a DB in professional capacity (4+ years).",
+                                    "Been using only this as a DB in professional capacity.",
                             },
                             {
                                 title: "HTML5/ CSS3",
@@ -54,8 +56,13 @@ const SkillsDialog: React.FC = () => {
                                     "Being no master of CSS, Tailwind came to my rescue.",
                             },
                             {
-                                title: "Visual Studio",
+                                title: "Jetbrains Rider",
                                 description: "My primary C#/ .NET IDE",
+                            },
+                            {
+                                title: "Visual Studio",
+                                description:
+                                    "Was my primary C#/ .NET IDE, until I decided to go for jetbrains products.",
                             },
                             {
                                 title: "Visual Studio Code",
@@ -63,8 +70,7 @@ const SkillsDialog: React.FC = () => {
                             },
                             {
                                 title: "Linux & Bash",
-                                description:
-                                    "I love linux, been using linux for 5+ years, with the terminal.",
+                                description: `I love linux, been using linux for ${getDateDifference(new Date(), InitialLinuxUsageDate).years}+ years, with the terminal.`,
                             },
                             {
                                 title: "Git",

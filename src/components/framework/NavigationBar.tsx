@@ -15,7 +15,7 @@ import {
 import { Button } from "@/components/ui/button.tsx";
 
 interface Props {
-    selected: "WORK_EXPERIENCE" | "BLOGS" | "HOME";
+    selected?: "WORK_EXPERIENCE" | "BLOGS" | "HOME";
 }
 
 const NavigationBar: React.FC<Props> = (props) => {
