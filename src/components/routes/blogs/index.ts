@@ -1,6 +1,8 @@
-import Blogs from "./Blogs";
-import EldenRing from "./EldenRing";
-import TableOfContent from "./TableOfContent";
-import TableOfContentBreadcrumb from "./TableOfContentBreadcrumb";
+import Blogs from "./Blogs.tsx";
+import Bloodborne from "./Bloodborne.tsx";
+import EldenRing from "./EldenRing.tsx";
+import GamingAdventures from "./GamingAdventures.tsx";
+import TableOfContent from "./TableOfContent.tsx";
+import TableOfContentBreadcrumb from "./TableOfContentBreadcrumb.tsx";
 
-export { Blogs, EldenRing, TableOfContent, TableOfContentBreadcrumb };
+export { Blogs, Bloodborne, EldenRing, GamingAdventures, TableOfContent, TableOfContentBreadcrumb };

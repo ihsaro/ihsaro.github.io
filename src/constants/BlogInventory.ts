@@ -3,13 +3,23 @@ import { EldenRing, Blogs } from "@/components/routes/blogs";
 
 const BlogInventory: Array<BlogInventoryDefinition> = [
     {
-        url: "/blogs",
+        url: "",
         breadcrumbs: [],
         component: Blogs,
     },
     {
-        url: "/blogs/gaming-adventure/elden-ring",
-        breadcrumbs: ["Gaming adventure", "Elden ring"],
+        url: "gaming-adventures",
+        breadcrumbs: ["Gaming adventures"],
+        component: EldenRing,
+    },
+    {
+        url: "bloodborne",
+        breadcrumbs: ["Gaming adventures", "Bloodborne"],
+        component: EldenRing,
+    },
+    {
+        url: "elden-ring",
+        breadcrumbs: ["Gaming adventures", "Elden ring"],
         component: EldenRing,
     },
 ];
