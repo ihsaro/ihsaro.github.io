@@ -1,5 +1,10 @@
 import { BlogInventoryDefinition } from "@/models";
-import { EldenRing, Blogs } from "@/components/routes/blogs";
+import {
+    EldenRing,
+    Blogs,
+    Bloodborne,
+    GamingAdventures,
+} from "@/components/routes/blogs";
 
 const BlogInventory: Array<BlogInventoryDefinition> = [
     {
@@ -9,17 +14,40 @@ const BlogInventory: Array<BlogInventoryDefinition> = [
     },
     {
         url: "gaming-adventures",
-        breadcrumbs: ["Gaming adventures"],
-        component: EldenRing,
+        breadcrumbs: [
+            {
+                value: "Gaming adventures",
+                url: "gaming-adventures",
+            },
+        ],
+        component: GamingAdventures,
     },
     {
         url: "bloodborne",
-        breadcrumbs: ["Gaming adventures", "Bloodborne"],
-        component: EldenRing,
+        breadcrumbs: [
+            {
+                value: "Gaming adventures",
+                url: "gaming-adventures",
+            },
+            {
+                value: "Bloodborne",
+                url: "bloodborne",
+            },
+        ],
+        component: Bloodborne,
     },
     {
         url: "elden-ring",
-        breadcrumbs: ["Gaming adventures", "Elden ring"],
+        breadcrumbs: [
+            {
+                value: "Gaming adventures",
+                url: "gaming-adventures",
+            },
+            {
+                value: "Elden ring",
+                url: "elden-ring",
+            },
+        ],
         component: EldenRing,
     },
 ];

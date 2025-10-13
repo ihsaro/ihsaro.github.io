@@ -1,23 +1,34 @@
 import React from "react";
-import { ChevronRight } from "lucide-react";
+import {
+    Breadcrumb,
+    BreadcrumbItem,
+    BreadcrumbLink,
+    BreadcrumbList,
+    BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb";
+
 import { BlogInventoryDefinition } from "@/models";
 
 interface Props {
-    blog?: BlogInventoryDefinition;
+    blog: BlogInventoryDefinition;
 }
 
 const TableOfContentBreadcrumb: React.FC<Props> = (props) => {
     return (
-        <div className="flex flex-row items-center gap-2">
-            {props.blog?.breadcrumbs.map((breadcrumb) => {
-                return (
+        <Breadcrumb>
+            <BreadcrumbList>
+                {props.blog.breadcrumbs.map((breadcrumb, index) => (
                     <>
-                        <ChevronRight size={18} />
-                        <span>{breadcrumb}</span>
+                        {index > 0 && <BreadcrumbSeparator />}
+                        <BreadcrumbItem>
+                            <BreadcrumbLink href={"#" + breadcrumb.url}>
+                                {breadcrumb.value}
+                            </BreadcrumbLink>
+                        </BreadcrumbItem>
                     </>
-                );
-            })}
-        </div>
+                ))}
+            </BreadcrumbList>
+        </Breadcrumb>
     );
 };
 

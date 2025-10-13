@@ -5,4 +5,11 @@ import GamingAdventures from "./GamingAdventures.tsx";
 import TableOfContent from "./TableOfContent.tsx";
 import TableOfContentBreadcrumb from "./TableOfContentBreadcrumb.tsx";
 
-export { Blogs, Bloodborne, EldenRing, GamingAdventures, TableOfContent, TableOfContentBreadcrumb };
+export {
+    Blogs,
+    Bloodborne,
+    EldenRing,
+    GamingAdventures,
+    TableOfContent,
+    TableOfContentBreadcrumb,
+};
