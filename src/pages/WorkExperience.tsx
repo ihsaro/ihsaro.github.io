@@ -9,10 +9,10 @@ const WorkExperience: React.FC = () => {
                 <Timeline
                     items={[
                         {
-                            period: "APR 2024 - Present",
+                            period: "APR 2024 - SEP 2025",
                             title: "Bocasay Maurice",
                             taglines: [
-                                "Senior Software Engineer (APR 2024 - Present)",
+                                "Senior Software Engineer (APR 2024 - SEP 2025)",
                             ],
                             description: (
                                 <div>
@@ -33,8 +33,12 @@ const WorkExperience: React.FC = () => {
                                             pros and the cons of each approach.
                                         </li>
                                         <li>
-                                            ... More coming soon, working hard
-                                            &#128170;
+                                            Held a knowledge sharing session on
+                                            how to integrate a database
+                                            migration tool into an existing
+                                            system, elaborating on tools such as
+                                            EFCore, FluentMigrator, as well as
+                                            writing your own migration tool.
                                         </li>
                                     </ol>
                                 </div>

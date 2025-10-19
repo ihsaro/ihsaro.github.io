@@ -36,7 +36,7 @@ const Blogs: React.FC = () => {
                         <TableOfContentBreadcrumb blog={blog} />
                     </div>
                     {blog && <blog.component />}
-                    <TableOfContent blog={blog} />
+                    <TableOfContent fragment={hash.substring(1)} />
                 </Sheet>
             </PageLayout>
         );
