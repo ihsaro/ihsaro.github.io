@@ -1,24 +1,50 @@
 import React from "react";
-import {
-    Accordion,
-    AccordionContent,
-    AccordionItem,
-    AccordionTrigger,
-} from "@/components/ui/accordion.tsx";
+
 import {
     SheetContent,
     SheetDescription,
     SheetHeader,
     SheetTitle,
 } from "@/components/ui/sheet.tsx";
-import { Link } from "react-router-dom";
+import { AccordionTree } from "@/components/framework";
 
 interface Props {
     fragment?: string;
 }
 
-const TableOfContent: React.FC<Props> = (props) => {
-    console.log(props);
+const TableOfContent: React.FC<Props> = () => {
+    const treeData = {
+        children: [
+            {
+                key: "coding-adventures",
+                title: "Coding adventures",
+                children: [
+                    {
+                        key: "c#",
+                        title: "C#",
+                        children: [
+                            {
+                                key: "why-should-you-learn-c#",
+                                fragment: "why-should-you-learn-c#",
+                                title: "Why should you learn C#",
+                            },
+                        ],
+                    },
+                ],
+            },
+            {
+                key: "gaming-adventures",
+                title: "Gaming adventures",
+                children: [
+                    { key: "bloodborne", fragment: "bloodborne", title: "Bloodborne" },
+                    { key: "dark-souls-1", fragment: "dark-souls-1", title: "Dark Souls 1" },
+                    { key: "dark-souls-2", fragment: "dark-souls-2", title: "Dark Souls 2" },
+                    { key: "dark-souls-3", fragment: "dark-souls-3", title: "Dark Souls 3" },
+                    { key: "elden-ring", fragment: "elden-ring", title: "Elden Ring" },
+                ],
+            },
+        ],
+    }
 
     return (
         <SheetContent className="flex flex-col" side="left">
@@ -26,57 +52,7 @@ const TableOfContent: React.FC<Props> = (props) => {
                 <SheetTitle>Table of content</SheetTitle>
             </SheetHeader>
             <SheetDescription className="text-white">
-                <Accordion type="multiple" className="w-full">
-                    <AccordionItem value="item-1" className="border-0">
-                        <AccordionTrigger className="py-2">
-                            Gaming adventures
-                        </AccordionTrigger>
-                        <AccordionContent className="flex flex-col gap-1">
-                            <Link
-                                className="text-md ml-5 hover:underline"
-                                to="#bloodborne"
-                            >
-                                Bloodborne
-                            </Link>
-                            <Link
-                                className="text-md ml-5 hover:underline"
-                                to="#elden-ring"
-                            >
-                                Elden Ring
-                            </Link>
-                            <Link
-                                className="text-md ml-5 hover:underline"
-                                to="#elden-ring"
-                            >
-                                Dark Souls 1
-                            </Link>
-                            <Link
-                                className="text-md ml-5 hover:underline"
-                                to="#elden-ring"
-                            >
-                                Dark Souls 2
-                            </Link>
-                            <Link
-                                className="text-md ml-5 hover:underline"
-                                to="#elden-ring"
-                            >
-                                Dark Souls 3
-                            </Link>
-                        </AccordionContent>
-                    </AccordionItem>
-                    <AccordionItem value="item-2" className="border-0">
-                        <AccordionTrigger className="py-2">
-                            Coding adventures
-                        </AccordionTrigger>
-                        <AccordionContent className="flex flex-col gap-4 text-balance"></AccordionContent>
-                    </AccordionItem>
-                    <AccordionItem value="item-3" className="border-0">
-                        <AccordionTrigger className="py-2">
-                            Linux adventures
-                        </AccordionTrigger>
-                        <AccordionContent className="flex flex-col gap-4 text-balance"></AccordionContent>
-                    </AccordionItem>
-                </Accordion>
+                <AccordionTree data={treeData.children} />
             </SheetDescription>
         </SheetContent>
     );
