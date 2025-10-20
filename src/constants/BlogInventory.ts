@@ -1,10 +1,8 @@
 import { BlogInventoryDefinition } from "@/models";
 import {
-    EldenRing,
     Blogs,
-    Bloodborne,
-    GamingAdventures,
-    DarkSouls1,
+    HowToSwitchFromWindowsToLinux,
+    WhyShouldYouSwitchFromWindowsToLinux,
 } from "@/components/routes/blogs";
 
 const BlogInventory: Array<BlogInventoryDefinition> = [
@@ -14,84 +12,20 @@ const BlogInventory: Array<BlogInventoryDefinition> = [
         component: Blogs,
     },
     {
-        url: "gaming-adventures",
+        url: "how-to-switch-from-windows-to-linux",
         breadcrumbs: [
-            {
-                value: "Gaming adventures",
-                url: "gaming-adventures",
-            },
+            "Linux adventures",
+            "How to switch from windows to linux?",
         ],
-        component: GamingAdventures,
+        component: HowToSwitchFromWindowsToLinux,
     },
     {
-        url: "bloodborne",
+        url: "why-should-you-switch-from-windows-to-linux",
         breadcrumbs: [
-            {
-                value: "Gaming adventures",
-                url: "gaming-adventures",
-            },
-            {
-                value: "Bloodborne",
-                url: "bloodborne",
-            },
+            "Linux adventures",
+            "Why should you switch from windows to linux?",
         ],
-        component: Bloodborne,
-    },
-    {
-        url: "elden-ring",
-        breadcrumbs: [
-            {
-                value: "Gaming adventures",
-                url: "gaming-adventures",
-            },
-            {
-                value: "Elden ring",
-                url: "elden-ring",
-            },
-        ],
-        component: EldenRing,
-    },
-    {
-        url: "dark-souls-1",
-        breadcrumbs: [
-            {
-                value: "Gaming adventures",
-                url: "gaming-adventures",
-            },
-            {
-                value: "Dark Souls 1",
-                url: "dark-souls-1",
-            },
-        ],
-        component: DarkSouls1,
-    },
-    {
-        url: "elden-ring",
-        breadcrumbs: [
-            {
-                value: "Gaming adventures",
-                url: "gaming-adventures",
-            },
-            {
-                value: "Elden ring",
-                url: "elden-ring",
-            },
-        ],
-        component: EldenRing,
-    },
-    {
-        url: "elden-ring",
-        breadcrumbs: [
-            {
-                value: "Gaming adventures",
-                url: "gaming-adventures",
-            },
-            {
-                value: "Elden ring",
-                url: "elden-ring",
-            },
-        ],
-        component: EldenRing,
+        component: WhyShouldYouSwitchFromWindowsToLinux,
     },
 ];
 

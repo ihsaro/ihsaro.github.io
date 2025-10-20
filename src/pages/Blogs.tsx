@@ -6,7 +6,7 @@ import {
 import * as React from "react";
 import { Sheet, SheetTrigger } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
-import { SquareMenu } from "lucide-react";
+import { BookOpen } from "lucide-react";
 import { useLocation } from "react-router-dom";
 import { BlogInventoryDefinition } from "@/models";
 import { BlogInventory } from "@/constants";
@@ -28,9 +28,9 @@ const Blogs: React.FC = () => {
                         <SheetTrigger asChild>
                             <Button
                                 className="flex flex-row gap-2"
-                                variant="outline"
+                                variant="ghost"
                             >
-                                <SquareMenu size={20} /> Table of contents
+                                <BookOpen size={20} />
                             </Button>
                         </SheetTrigger>
                         <TableOfContentBreadcrumb blog={blog} />

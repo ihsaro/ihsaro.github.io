@@ -1,17 +1,13 @@
 import Blogs from "./Blogs.tsx";
-import Bloodborne from "./Bloodborne.tsx";
-import DarkSouls1 from "./DarkSouls1.tsx";
-import EldenRing from "./EldenRing.tsx";
-import GamingAdventures from "./GamingAdventures.tsx";
+import HowToSwitchFromWindowsToLinux from "./HowToSwitchFromWindowsToLinux.tsx";
 import TableOfContent from "./TableOfContent.tsx";
 import TableOfContentBreadcrumb from "./TableOfContentBreadcrumb.tsx";
+import WhyShouldYouSwitchFromWindowsToLinux from "./WhyShouldYouSwitchFromWindowsToLinux.tsx";
 
 export {
     Blogs,
-    Bloodborne,
-    DarkSouls1,
-    EldenRing,
-    GamingAdventures,
+    HowToSwitchFromWindowsToLinux,
     TableOfContent,
     TableOfContentBreadcrumb,
+    WhyShouldYouSwitchFromWindowsToLinux,
 };
