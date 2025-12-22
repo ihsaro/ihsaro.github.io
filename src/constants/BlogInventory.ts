@@ -1,60 +1,78 @@
-import { BlogInventoryDefinition } from "@/models";
+import { RawTreeNode } from "@/models";
 import {
-    Blogs,
+    HandlingThirdPartyDependenciesInCleanArchitecture,
     CodingAdventures,
     CSharp,
-    HandlingThirdPartyDependenciesInCleanArchitecture,
 } from "@/components/routes/blogs";
 
-const CodingAdventuresBaseUrl = "/blogs/coding-adventures";
-
-const BlogInventory: Array<BlogInventoryDefinition> = [
+const BlogInventory: Array<RawTreeNode> = [
     {
-        url: "/blogs",
-        breadcrumbs: [],
-        component: Blogs,
-    },
-    {
-        url: CodingAdventuresBaseUrl,
-        breadcrumbs: [
-            {
-                title: "Coding adventures",
-                url: CodingAdventuresBaseUrl,
-            },
-        ],
         component: CodingAdventures,
-    },
-    {
-        url: `${CodingAdventuresBaseUrl}/c-sharp`,
-        breadcrumbs: [
+        title: "Coding adventures",
+        url: "coding-adventures",
+        children: [
             {
-                title: "Coding adventures",
-                url: CodingAdventuresBaseUrl,
-            },
-            {
+                component: CSharp,
                 title: "C#",
-                url: `${CodingAdventuresBaseUrl}/c-sharp`,
+                url: "c-sharp",
+                children: [
+                    {
+                        component: CSharp,
+                        url: "handling-3rd-party-dependencies-in-clean-architecture",
+                        title: "Handling 3rd party dependencies in clean architecture",
+                    },
+                ],
             },
         ],
-        component: CSharp,
     },
     {
-        url: `${CodingAdventuresBaseUrl}/c-sharp/handling-3rd-party-dependencies-in-clean-architecture`,
-        breadcrumbs: [
+        component: CodingAdventures,
+        title: "Gaming adventures",
+        url: "gaming-adventures",
+        children: [
             {
-                title: "Coding adventures",
-                url: CodingAdventuresBaseUrl,
+                component: CodingAdventures,
+                title: "Bloodborne",
+                url: "bloodborne",
             },
             {
-                title: "C#",
-                url: `${CodingAdventuresBaseUrl}/c-sharp`,
+                component: CodingAdventures,
+                title: "Dark Souls 1",
+                url: "dark-souls-1",
             },
             {
-                title: "Handling 3rd party dependencies in clean architecture",
-                url: `${CodingAdventuresBaseUrl}/c-sharp/handling-3rd-party-dependencies-in-clean-architecture`,
+                component: CodingAdventures,
+                title: "Dark Souls 2",
+                url: "dark-souls-2",
+            },
+            {
+                component: CodingAdventures,
+                title: "Dark Souls 3",
+                url: "dark-souls-3",
+            },
+            {
+                component: CodingAdventures,
+                title: "Elden Ring",
+                url: "elden-ring",
             },
         ],
-        component: HandlingThirdPartyDependenciesInCleanArchitecture,
+    },
+    {
+        component: CodingAdventures,
+        title: "Linux adventures",
+        url: "linux-adventures",
+        children: [
+            {
+                component: CodingAdventures,
+                title: "How to switch from windows to linux?",
+                url: "how-to-switch-from-windows-to-linux",
+            },
+            {
+                component: CodingAdventures,
+                title: "Why should you switch from windows to linux?",
+                url: "why-should-you-switch-from-windows-to-linux",
+            },
+        ],
     },
 ];
 

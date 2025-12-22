@@ -8,19 +8,20 @@ import { Sheet, SheetTrigger } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
 import { BookOpen } from "lucide-react";
 import { useLocation } from "react-router-dom";
-import { BlogInventoryDefinition } from "@/models";
 import { BlogInventory } from "@/constants";
 import NotFound from "@/pages/NotFound";
+import { getExpandedPaths } from "@/lib/utils.ts";
+import { Blogs as RootBlogsPage } from "@/components/routes/blogs";
 
 const Blogs: React.FC = () => {
     const location = useLocation();
     const { pathname } = location;
 
-    const blog: BlogInventoryDefinition | undefined = BlogInventory.find(
-        (x) => x.url === pathname,
-    );
+    const expanded = getExpandedPaths(BlogInventory, pathname);
 
-    if (blog) {
+    const blog = expanded.find((x) => `/blogs${x.url}` === pathname);
+
+    if (pathname === "/blogs" || blog) {
         return (
             <PageLayout selected="BLOGS">
                 <Sheet>
@@ -33,14 +34,13 @@ const Blogs: React.FC = () => {
                                 <BookOpen size={20} />
                             </Button>
                         </SheetTrigger>
-                        <TableOfContentBreadcrumb blog={blog} />
+                        <TableOfContentBreadcrumb paths={expanded} />
                     </div>
-                    {blog && (
-                        <div className="mt-3 text-justify">
-                            <blog.component />
-                        </div>
-                    )}
-                    <TableOfContent url={blog.url} />
+                    <div className="mt-3 text-justify">
+                        {blog && pathname !== "/blogs" && <blog.component />}
+                        {pathname === "/blogs" && <RootBlogsPage />}
+                    </div>
+                    <TableOfContent />
                 </Sheet>
             </PageLayout>
         );

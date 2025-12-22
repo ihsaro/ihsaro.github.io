@@ -1,3 +1,4 @@
-import BlogInventoryDefinition from "@/models/BlogInventoryDefinition";
+import ExpandedPath from "./ExpandedPath";
+import RawTreeNode from "./RawTreeNode";
 
-export type { BlogInventoryDefinition };
+export type { ExpandedPath, RawTreeNode };

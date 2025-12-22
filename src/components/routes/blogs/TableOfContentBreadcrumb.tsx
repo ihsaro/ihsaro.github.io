@@ -6,27 +6,26 @@ import {
     BreadcrumbList,
     BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
-
-import { BlogInventoryDefinition } from "@/models";
+import { ExpandedPath } from "@/models";
 
 interface Props {
-    blog: BlogInventoryDefinition;
+    paths: ExpandedPath[];
 }
 
 const TableOfContentBreadcrumb: React.FC<Props> = (props) => {
     return (
         <Breadcrumb>
             <BreadcrumbList>
-                {props.blog.breadcrumbs.length > 0 && <BreadcrumbSeparator />}
-                {props.blog.breadcrumbs.map((breadcrumb, index) => (
+                {props.paths.length > 0 && <BreadcrumbSeparator />}
+                {props.paths.map((breadcrumb, index) => (
                     <>
                         {index > 0 && <BreadcrumbSeparator />}
-                        {index < props.blog.breadcrumbs.length - 1 && (
-                            <BreadcrumbLink href={breadcrumb.url}>
+                        {index < props.paths.length - 1 && (
+                            <BreadcrumbLink href={`/blogs${breadcrumb.url}`}>
                                 {breadcrumb.title}
                             </BreadcrumbLink>
                         )}
-                        {index == props.blog.breadcrumbs.length - 1 && (
+                        {index == props.paths.length - 1 && (
                             <BreadcrumbItem>{breadcrumb.title}</BreadcrumbItem>
                         )}
                     </>

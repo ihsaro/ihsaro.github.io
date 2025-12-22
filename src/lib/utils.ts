@@ -1,5 +1,6 @@
 import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
+import { ExpandedPath, RawTreeNode } from "@/models";
 
 export const cn = (...inputs: ClassValue[]) => twMerge(clsx(inputs));
 
@@ -36,6 +37,43 @@ export const getDateDifference = (initial: Date, final: Date) => {
     }
 
     return { years, months, days };
+};
+
+export const getExpandedPaths = (
+    nodes: RawTreeNode[],
+    currentPath: string,
+    parentPath = "",
+): ExpandedPath[] => {
+    for (const node of nodes) {
+        const fullPath = `${parentPath}/${node.url}`;
+
+        if (currentPath === `/blogs${fullPath}`) {
+            return [
+                { component: node.component, title: node.title, url: fullPath },
+            ];
+        }
+
+        if (node.children) {
+            const childPaths = getExpandedPaths(
+                node.children,
+                currentPath,
+                fullPath,
+            );
+
+            if (childPaths.length > 0) {
+                return [
+                    {
+                        component: node.component,
+                        title: node.title,
+                        url: fullPath,
+                    },
+                    ...childPaths,
+                ];
+            }
+        }
+    }
+
+    return [];
 };
 
 const isLeapYear = (year: number) => {
