@@ -14,10 +14,10 @@ import NotFound from "@/pages/NotFound";
 
 const Blogs: React.FC = () => {
     const location = useLocation();
-    const { hash } = location;
+    const { pathname } = location;
 
     const blog: BlogInventoryDefinition | undefined = BlogInventory.find(
-        (x) => x.url === hash.substring(1),
+        (x) => x.url === pathname,
     );
 
     if (blog) {
@@ -28,15 +28,19 @@ const Blogs: React.FC = () => {
                         <SheetTrigger asChild>
                             <Button
                                 className="flex flex-row gap-2"
-                                variant="ghost"
+                                variant="outline"
                             >
                                 <BookOpen size={20} />
                             </Button>
                         </SheetTrigger>
                         <TableOfContentBreadcrumb blog={blog} />
                     </div>
-                    {blog && <blog.component />}
-                    <TableOfContent fragment={hash.substring(1)} />
+                    {blog && (
+                        <div className="mt-3 text-justify">
+                            <blog.component />
+                        </div>
+                    )}
+                    <TableOfContent url={blog.url} />
                 </Sheet>
             </PageLayout>
         );

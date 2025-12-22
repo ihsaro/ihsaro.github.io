@@ -4,13 +4,13 @@ import {
     AccordionItem,
     AccordionTrigger,
 } from "@/components/ui/table-of-content-accordion.tsx";
-import { Link } from "react-router-dom";
 import React from "react";
+import { Button } from "@/components/ui/button.tsx";
 
 type TreeNode = {
     key: string;
     title: string;
-    fragment?: string;
+    url: string;
     children?: TreeNode[];
 };
 
@@ -45,12 +45,12 @@ const AccordionTree: React.FC<AccordionTreeProps> = ({ data, level = 0 }) => {
                         </>
                     ) : (
                         <div className="px-4 py-1 text-sm hover:underline">
-                            <Link
-                                className="text-black dark:text-white"
-                                to={`#${node.fragment ?? node.key}`}
+                            <Button
+                                variant="link"
+                                className="h-max px-0 py-0 text-black dark:text-white text-wrap text-left"
                             >
-                                {node.title}
-                            </Link>
+                                <a href={`/blogs/${node.url}`}>{node.title}</a>
+                            </Button>
                         </div>
                     )}
                 </AccordionItem>

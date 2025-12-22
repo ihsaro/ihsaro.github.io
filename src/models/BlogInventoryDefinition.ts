@@ -2,6 +2,9 @@ import React from "react";
 
 export default interface BlogInventoryDefinition {
     url: string;
-    breadcrumbs: Array<string>;
+    breadcrumbs: Array<{
+        title: string;
+        url: string;
+    }>;
     component: React.FC;
 }

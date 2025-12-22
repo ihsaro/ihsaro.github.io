@@ -2,6 +2,7 @@ import React from "react";
 import {
     Breadcrumb,
     BreadcrumbItem,
+    BreadcrumbLink,
     BreadcrumbList,
     BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
@@ -20,7 +21,14 @@ const TableOfContentBreadcrumb: React.FC<Props> = (props) => {
                 {props.blog.breadcrumbs.map((breadcrumb, index) => (
                     <>
                         {index > 0 && <BreadcrumbSeparator />}
-                        <BreadcrumbItem>{breadcrumb}</BreadcrumbItem>
+                        {index < props.blog.breadcrumbs.length - 1 && (
+                            <BreadcrumbLink href={breadcrumb.url}>
+                                {breadcrumb.title}
+                            </BreadcrumbLink>
+                        )}
+                        {index == props.blog.breadcrumbs.length - 1 && (
+                            <BreadcrumbItem>{breadcrumb.title}</BreadcrumbItem>
+                        )}
                     </>
                 ))}
             </BreadcrumbList>

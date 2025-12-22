@@ -1,31 +1,60 @@
 import { BlogInventoryDefinition } from "@/models";
 import {
     Blogs,
-    HowToSwitchFromWindowsToLinux,
-    WhyShouldYouSwitchFromWindowsToLinux,
+    CodingAdventures,
+    CSharp,
+    HandlingThirdPartyDependenciesInCleanArchitecture,
 } from "@/components/routes/blogs";
+
+const CodingAdventuresBaseUrl = "/blogs/coding-adventures";
 
 const BlogInventory: Array<BlogInventoryDefinition> = [
     {
-        url: "",
+        url: "/blogs",
         breadcrumbs: [],
         component: Blogs,
     },
     {
-        url: "how-to-switch-from-windows-to-linux",
+        url: CodingAdventuresBaseUrl,
         breadcrumbs: [
-            "Linux adventures",
-            "How to switch from windows to linux?",
+            {
+                title: "Coding adventures",
+                url: CodingAdventuresBaseUrl,
+            },
         ],
-        component: HowToSwitchFromWindowsToLinux,
+        component: CodingAdventures,
     },
     {
-        url: "why-should-you-switch-from-windows-to-linux",
+        url: `${CodingAdventuresBaseUrl}/c-sharp`,
         breadcrumbs: [
-            "Linux adventures",
-            "Why should you switch from windows to linux?",
+            {
+                title: "Coding adventures",
+                url: CodingAdventuresBaseUrl,
+            },
+            {
+                title: "C#",
+                url: `${CodingAdventuresBaseUrl}/c-sharp`,
+            },
         ],
-        component: WhyShouldYouSwitchFromWindowsToLinux,
+        component: CSharp,
+    },
+    {
+        url: `${CodingAdventuresBaseUrl}/c-sharp/handling-3rd-party-dependencies-in-clean-architecture`,
+        breadcrumbs: [
+            {
+                title: "Coding adventures",
+                url: CodingAdventuresBaseUrl,
+            },
+            {
+                title: "C#",
+                url: `${CodingAdventuresBaseUrl}/c-sharp`,
+            },
+            {
+                title: "Handling 3rd party dependencies in clean architecture",
+                url: `${CodingAdventuresBaseUrl}/c-sharp/handling-3rd-party-dependencies-in-clean-architecture`,
+            },
+        ],
+        component: HandlingThirdPartyDependenciesInCleanArchitecture,
     },
 ];
 

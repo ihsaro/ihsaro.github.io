@@ -1,13 +1,15 @@
 import Blogs from "./Blogs.tsx";
-import HowToSwitchFromWindowsToLinux from "./HowToSwitchFromWindowsToLinux.tsx";
+import CodingAdventures from "./CodingAdventures.tsx";
+import CSharp from "./CSharp.tsx";
 import TableOfContent from "./TableOfContent.tsx";
 import TableOfContentBreadcrumb from "./TableOfContentBreadcrumb.tsx";
-import WhyShouldYouSwitchFromWindowsToLinux from "./WhyShouldYouSwitchFromWindowsToLinux.tsx";
+import HandlingThirdPartyDependenciesInCleanArchitecture from "./HandlingThirdPartyDependenciesInCleanArchitecture.tsx";
 
 export {
     Blogs,
-    HowToSwitchFromWindowsToLinux,
+    CodingAdventures,
+    CSharp,
     TableOfContent,
     TableOfContentBreadcrumb,
-    WhyShouldYouSwitchFromWindowsToLinux,
+    HandlingThirdPartyDependenciesInCleanArchitecture,
 };
