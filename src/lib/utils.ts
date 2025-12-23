@@ -1,6 +1,6 @@
 import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
-import { ExpandedPath, RawTreeNode } from "@/models";
+import { RawTreeNode } from "@/models";
 
 export const cn = (...inputs: ClassValue[]) => twMerge(clsx(inputs));
 
@@ -43,13 +43,18 @@ export const getExpandedPaths = (
     nodes: RawTreeNode[],
     currentPath: string,
     parentPath = "",
-): ExpandedPath[] => {
+): RawTreeNode[] => {
     for (const node of nodes) {
         const fullPath = `${parentPath}/${node.url}`;
 
         if (currentPath === `/blogs${fullPath}`) {
             return [
-                { component: node.component, title: node.title, url: fullPath },
+                {
+                    component: node.component,
+                    title: node.title,
+                    url: fullPath,
+                    children: node.children,
+                },
             ];
         }
 
@@ -66,6 +71,7 @@ export const getExpandedPaths = (
                         component: node.component,
                         title: node.title,
                         url: fullPath,
+                        children: node.children,
                     },
                     ...childPaths,
                 ];

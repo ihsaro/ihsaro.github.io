@@ -6,10 +6,10 @@ import {
     BreadcrumbList,
     BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
-import { ExpandedPath } from "@/models";
+import { RawTreeNode } from "@/models";
 
 interface Props {
-    paths: ExpandedPath[];
+    paths: RawTreeNode[];
 }
 
 const TableOfContentBreadcrumb: React.FC<Props> = (props) => {

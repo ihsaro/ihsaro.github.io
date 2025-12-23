@@ -1,15 +1,13 @@
 import Blogs from "./Blogs.tsx";
-import CodingAdventures from "./CodingAdventures.tsx";
-import CSharp from "./CSharp.tsx";
+import HandlingThirdPartyDependenciesInCleanArchitecture from "./HandlingThirdPartyDependenciesInCleanArchitecture.tsx";
 import TableOfContent from "./TableOfContent.tsx";
 import TableOfContentBreadcrumb from "./TableOfContentBreadcrumb.tsx";
-import HandlingThirdPartyDependenciesInCleanArchitecture from "./HandlingThirdPartyDependenciesInCleanArchitecture.tsx";
+import TableOfContentPage from "./TableOfContentPage.tsx";
 
 export {
     Blogs,
-    CodingAdventures,
-    CSharp,
+    HandlingThirdPartyDependenciesInCleanArchitecture,
     TableOfContent,
     TableOfContentBreadcrumb,
-    HandlingThirdPartyDependenciesInCleanArchitecture,
+    TableOfContentPage,
 };

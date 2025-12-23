@@ -8,9 +8,13 @@ import {
 } from "@/components/ui/sheet.tsx";
 import { AccordionTree } from "@/components/framework";
 import { Hand } from "lucide-react";
-import { BlogInventory } from "@/constants";
+import { RawTreeNode } from "@/models";
 
-const TableOfContent: React.FC = () => {
+type Props = {
+    data: Array<RawTreeNode>;
+};
+
+const TableOfContent: React.FC<Props> = (props) => {
     return (
         <SheetContent className="flex flex-col" side="left">
             <SheetHeader>
@@ -23,7 +27,7 @@ const TableOfContent: React.FC = () => {
                 >
                     <Hand size={16} /> Welcome
                 </a>
-                <AccordionTree data={BlogInventory} />
+                <AccordionTree data={props.data} />
             </SheetDescription>
         </SheetContent>
     );
