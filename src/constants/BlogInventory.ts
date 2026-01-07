@@ -1,10 +1,8 @@
 import { RawTreeNode } from "@/models";
-import {
-    HandlingThirdPartyDependenciesInCleanArchitecture,
-    TableOfContentPage,
-} from "@/components/routes/blogs";
+import { BatchieTab, TableOfContentPage } from "@/components/routes/blogs";
 
 const BlogInventory: Array<RawTreeNode> = [
+    /*
     {
         component: TableOfContentPage,
         title: "Coding adventures",
@@ -22,6 +20,19 @@ const BlogInventory: Array<RawTreeNode> = [
                         title: "Handling 3rd party dependencies in clean architecture",
                     },
                 ],
+            },
+        ],
+    },
+     */
+    {
+        component: TableOfContentPage,
+        title: "Product adventures",
+        url: "product-adventures",
+        children: [
+            {
+                component: BatchieTab,
+                title: "Batchie Tab",
+                url: "batchie-tab",
             },
         ],
     },
