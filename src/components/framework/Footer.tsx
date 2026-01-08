@@ -5,7 +5,7 @@ const Footer: React.FC = () => (
     <footer className="mt-auto flex flex-row gap-1 px-10 py-5 md:px-28">
         <CopyrightIcon size={14} />
         <span className="text-muted-foreground">
-            2025 Idjaz Hossanee. All rights reserved.
+            2026 Idjaz Hossanee. All rights reserved.
         </span>
     </footer>
 );

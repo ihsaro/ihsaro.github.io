@@ -31,7 +31,7 @@ const BlogInventory: Array<RawTreeNode> = [
         children: [
             {
                 component: BatchieTab,
-                title: "Batchie Tab",
+                title: "BatchieTab",
                 url: "batchie-tab",
             },
         ],

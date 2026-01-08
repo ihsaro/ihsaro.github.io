@@ -9,6 +9,26 @@ const WorkExperience: React.FC = () => {
                 <Timeline
                     items={[
                         {
+                            period: "OCT 2025 - PRESENT",
+                            title: "FJTechLab International Ltd",
+                            taglines: ["Lead Fullstack Developer"],
+                            description: (
+                                <div>
+                                    <ol className="ml-4 list-decimal">
+                                        <li>
+                                            Working on a platform revolving
+                                            around risk management using C#/
+                                            .NET, MySQL and Angular.
+                                        </li>
+                                        <li>
+                                            More incoming, working hard
+                                            &#128170;
+                                        </li>
+                                    </ol>
+                                </div>
+                            ),
+                        },
+                        {
                             period: "APR 2024 - SEP 2025",
                             title: "Bocasay Maurice",
                             taglines: [
