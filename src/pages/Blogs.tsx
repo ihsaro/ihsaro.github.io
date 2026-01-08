@@ -15,11 +15,14 @@ import { Blogs as RootBlogsPage } from "@/components/routes/blogs";
 
 const Blogs: React.FC = () => {
     const location = useLocation();
-    const { pathname } = location;
+    // Normalize pathname by removing trailing slash (unless it's just "/")
+    const pathname = location.pathname.replace(/\/$/, "") || "/";
 
     const expanded = getExpandedPaths(BlogInventory, pathname);
 
-    const blog = expanded.find((x) => `/blogs${x.url}` === pathname);
+    const blog = expanded.find(
+        (x) => `/blogs${x.url}`.replace(/\/$/, "") === pathname,
+    );
 
     if (pathname === "/blogs" || blog) {
         return (
