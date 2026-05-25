@@ -1,3 +1,3 @@
-import SkillsDialog from "./SkillsDialog";
+import SkillsSection from "./SkillsSection";
 
-export { SkillsDialog };
+export { SkillsSection };

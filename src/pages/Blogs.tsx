@@ -1,21 +1,17 @@
+import * as React from "react";
+import { useLocation } from "react-router-dom";
 import { PageLayout } from "@/components/framework";
 import {
+    Blogs as RootBlogsPage,
     TableOfContent,
     TableOfContentBreadcrumb,
 } from "@/components/routes/blogs";
-import * as React from "react";
-import { Sheet, SheetTrigger } from "@/components/ui/sheet";
-import { Button } from "@/components/ui/button";
-import { BookOpen } from "lucide-react";
-import { useLocation } from "react-router-dom";
 import { BlogInventory } from "@/constants";
+import { getExpandedPaths } from "@/lib/utils";
 import NotFound from "@/pages/NotFound";
-import { getExpandedPaths } from "@/lib/utils.ts";
-import { Blogs as RootBlogsPage } from "@/components/routes/blogs";
 
 const Blogs: React.FC = () => {
     const location = useLocation();
-    // Normalize pathname by removing trailing slash (unless it's just "/")
     const pathname = location.pathname.replace(/\/$/, "") || "/";
 
     const expanded = getExpandedPaths(BlogInventory, pathname);
@@ -27,31 +23,26 @@ const Blogs: React.FC = () => {
     if (pathname === "/blogs" || blog) {
         return (
             <PageLayout selected="BLOGS">
-                <Sheet>
-                    <div className="flex flex-row items-center gap-3">
-                        <SheetTrigger asChild>
-                            <Button
-                                className="flex flex-row gap-2"
-                                variant="outline"
-                            >
-                                <BookOpen size={20} />
-                            </Button>
-                        </SheetTrigger>
+                <div className="flex flex-col gap-6 pb-12">
+                    <div className="border-b border-[var(--color-border)] pb-4">
                         <TableOfContentBreadcrumb paths={expanded} />
                     </div>
-                    <div className="mt-3 text-justify">
-                        {blog && pathname !== "/blogs" && (
-                            <blog.component data={[blog]} />
-                        )}
-                        {pathname === "/blogs" && <RootBlogsPage />}
+
+                    <div className="grid gap-8 lg:grid-cols-[260px_minmax(0,1fr)]">
+                        <TableOfContent data={BlogInventory} />
+                        <div className="min-w-0 text-justify">
+                            {blog && pathname !== "/blogs" && (
+                                <blog.component data={[blog]} />
+                            )}
+                            {pathname === "/blogs" && <RootBlogsPage />}
+                        </div>
                     </div>
-                    <TableOfContent data={BlogInventory} />
-                </Sheet>
+                </div>
             </PageLayout>
         );
-    } else {
-        return <NotFound />;
     }
+
+    return <NotFound />;
 };
 
 export default Blogs;

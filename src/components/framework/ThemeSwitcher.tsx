@@ -1,47 +1,43 @@
-import { MonitorIcon, Moon, MoonIcon, Sun, SunIcon } from "lucide-react";
+import * as React from "react";
+import { useTheme } from "@/contexts/useTheme";
+import Icon from "./Icon";
 
-import { Button } from "@/components/ui/button.tsx";
-import {
-    DropdownMenu,
-    DropdownMenuContent,
-    DropdownMenuItem,
-    DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu.tsx";
-import { useTheme } from "@/contexts/ThemeContext.tsx";
+const options = [
+    { value: "light", label: "Light", icon: "sun" as const },
+    { value: "system", label: "System", icon: "monitor" as const },
+    { value: "dark", label: "Dark", icon: "moon" as const },
+];
 
 const ThemeSwitcher: React.FC = () => {
-    const { setTheme } = useTheme();
+    const { theme, setTheme } = useTheme();
 
     return (
-        <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-                <Button variant="outline" size="icon">
-                    <Sun className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
-                    <Moon className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
-                    <span className="sr-only">Toggle theme</span>
-                </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent align="end">
-                <DropdownMenuItem
-                    className="flex flex-row items-center gap-2"
-                    onClick={() => setTheme("light")}
-                >
-                    <SunIcon size={16} /> Light
-                </DropdownMenuItem>
-                <DropdownMenuItem
-                    className="flex flex-row items-center gap-2"
-                    onClick={() => setTheme("dark")}
-                >
-                    <MoonIcon size={16} /> Dark
-                </DropdownMenuItem>
-                <DropdownMenuItem
-                    className="flex flex-row items-center gap-2"
-                    onClick={() => setTheme("system")}
-                >
-                    <MonitorIcon size={16} /> System
-                </DropdownMenuItem>
-            </DropdownMenuContent>
-        </DropdownMenu>
+        <div
+            role="radiogroup"
+            aria-label="Theme"
+            className="flex items-center gap-0.5 rounded-full border border-[var(--color-border)] p-0.5"
+        >
+            {options.map((opt) => {
+                const active = theme === opt.value;
+                return (
+                    <button
+                        key={opt.value}
+                        type="button"
+                        role="radio"
+                        aria-checked={active}
+                        aria-label={opt.label}
+                        onClick={() => setTheme(opt.value as typeof theme)}
+                        className={`flex h-7 w-7 items-center justify-center rounded-full transition-colors ${
+                            active
+                                ? "bg-[var(--color-fg)] text-[var(--color-bg)]"
+                                : "text-[var(--color-muted)] hover:bg-[var(--color-surface)] hover:text-[var(--color-fg)]"
+                        }`}
+                    >
+                        <Icon name={opt.icon} size={13} />
+                    </button>
+                );
+            })}
+        </div>
     );
 };
 

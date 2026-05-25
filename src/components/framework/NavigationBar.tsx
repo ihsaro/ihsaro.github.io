@@ -1,145 +1,75 @@
-import {
-    HomeIcon,
-    BriefcaseIcon,
-    MenuIcon,
-    NotebookPenIcon,
-} from "lucide-react";
 import * as React from "react";
 import { ThemeSwitcher } from "@/components/framework";
-import {
-    DropdownMenu,
-    DropdownMenuContent,
-    DropdownMenuItem,
-    DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu.tsx";
-import { Button } from "@/components/ui/button.tsx";
+import Icon from "./Icon";
+
+type Selected = "WORK_EXPERIENCE" | "BLOGS" | "HOME";
 
 interface Props {
-    selected?: "WORK_EXPERIENCE" | "BLOGS" | "HOME";
+    selected?: Selected;
 }
 
-const NavigationBar: React.FC<Props> = (props) => {
-    const renderCurrentPageTitle = (
-        selected?: "WORK_EXPERIENCE" | "BLOGS" | "HOME",
-    ): React.ReactNode => {
-        switch (selected) {
-            case "HOME":
-                return (
-                    <div className="flex flex-row items-center gap-2">
-                        <HomeIcon size={16} />
-                        Home
-                    </div>
-                );
-            case "WORK_EXPERIENCE":
-                return (
-                    <div className="flex flex-row items-center gap-2">
-                        <BriefcaseIcon size={16} />
-                        Work Experience
-                    </div>
-                );
-            case "BLOGS":
-                return (
-                    <div className="flex flex-row items-center gap-2">
-                        <NotebookPenIcon size={16} />
-                        Blogs
-                    </div>
-                );
-        }
-    };
+const links: Array<{
+    key: Selected;
+    href: string;
+    label: string;
+    icon: "home" | "briefcase" | "notebook";
+}> = [
+    { key: "HOME", href: "/", label: "Home", icon: "home" },
+    {
+        key: "WORK_EXPERIENCE",
+        href: "/work-experience",
+        label: "Work",
+        icon: "briefcase",
+    },
+    { key: "BLOGS", href: "/blogs", label: "Blogs", icon: "notebook" },
+];
 
+const NavigationBar: React.FC<Props> = ({ selected }) => {
     return (
-        <>
-            <nav className="mx-28 mt-7 hidden flex-row justify-between md:flex">
-                <a href="/">
+        <header className="sticky top-0 z-40 w-full border-b border-[var(--color-border)] bg-[color-mix(in_oklab,var(--color-bg)_85%,transparent)] backdrop-blur-md">
+            <div className="mx-6 flex h-16 items-center justify-between gap-4 md:mx-28">
+                <a
+                    href="/"
+                    className="group flex shrink-0 items-center gap-3"
+                    aria-label="Home"
+                >
                     <img
-                        className="w-10 rounded-full"
+                        className="h-9 w-9 rounded-full ring-1 ring-[var(--color-border)] transition-transform duration-300 group-hover:scale-105"
                         src="/profile_picture.jpg"
-                        alt="Profile picture"
-                    ></img>
+                        alt="Idjaz Hossanee"
+                    />
                 </a>
-                <div className="flex flex-row gap-5">
-                    <a
-                        className="flex flex-row items-center gap-2 transition-opacity duration-200 hover:opacity-75"
-                        href="/"
-                    >
-                        <HomeIcon size={16} />
-                        {props.selected === "HOME" ? <u>Home</u> : "Home"}
-                    </a>
-                    <a
-                        className="flex flex-row items-center gap-2 transition-opacity duration-200 hover:opacity-75"
-                        href="/work-experience"
-                    >
-                        <BriefcaseIcon size={16} />
-                        {props.selected === "WORK_EXPERIENCE" ? (
-                            <u>Work Experience</u>
-                        ) : (
-                            "Work Experience"
-                        )}
-                    </a>
-                    <a
-                        className="flex flex-row items-center gap-2 transition-opacity duration-200 hover:opacity-75"
-                        href="/blogs"
-                    >
-                        <NotebookPenIcon size={16} />
-                        {props.selected === "BLOGS" ? <u>Blogs</u> : "Blogs"}
-                    </a>
-                </div>
+
+                <nav className="flex items-center gap-0.5 sm:gap-1">
+                    {links.map((l) => {
+                        const active = selected === l.key;
+                        return (
+                            <a
+                                key={l.key}
+                                href={l.href}
+                                aria-label={l.label}
+                                aria-current={active ? "page" : undefined}
+                                className={`group relative flex items-center gap-2 rounded-full px-3 py-2 text-sm transition-colors sm:px-4 ${
+                                    active
+                                        ? "text-[var(--color-fg)]"
+                                        : "text-[var(--color-muted)] hover:text-[var(--color-fg)]"
+                                }`}
+                            >
+                                <Icon name={l.icon} size={14} />
+                                <span className="hidden sm:inline">
+                                    {l.label}
+                                </span>
+                                {active && (
+                                    <span className="absolute inset-x-3 -bottom-[17px] h-px bg-[var(--color-fg)]" />
+                                )}
+                            </a>
+                        );
+                    })}
+                </nav>
+
                 <ThemeSwitcher />
-            </nav>
-            <nav className="mx-10 mt-7 flex flex-row justify-between md:hidden">
-                <DropdownMenu>
-                    <DropdownMenuTrigger asChild>
-                        <Button variant="outline" size="icon">
-                            <MenuIcon />
-                            <span className="sr-only">Toggle menu</span>
-                        </Button>
-                    </DropdownMenuTrigger>
-                    <DropdownMenuContent className="ml-10" align="end">
-                        <DropdownMenuItem className="flex flex-row items-center gap-2">
-                            <a
-                                className="flex flex-row items-center gap-2 text-base transition-opacity duration-200 hover:opacity-75"
-                                href="/"
-                            >
-                                <HomeIcon size={16} />
-                                {props.selected === "HOME" ? (
-                                    <u>Home</u>
-                                ) : (
-                                    "Home"
-                                )}
-                            </a>
-                        </DropdownMenuItem>
-                        <DropdownMenuItem className="flex flex-row items-center gap-2">
-                            <a
-                                className="flex flex-row items-center gap-2 text-base transition-opacity duration-200 hover:opacity-75"
-                                href="/work-experience"
-                            >
-                                <BriefcaseIcon size={16} />
-                                {props.selected === "WORK_EXPERIENCE" ? (
-                                    <u>Work Experience</u>
-                                ) : (
-                                    "Work Experience"
-                                )}
-                            </a>
-                        </DropdownMenuItem>
-                        <DropdownMenuItem className="flex flex-row items-center gap-2">
-                            <a
-                                className="flex flex-row items-center gap-2 text-base transition-opacity duration-200 hover:opacity-75"
-                                href="/blogs"
-                            >
-                                <NotebookPenIcon size={16} />
-                                {props.selected === "BLOGS" ? (
-                                    <u>Blogs</u>
-                                ) : (
-                                    "Blogs"
-                                )}
-                            </a>
-                        </DropdownMenuItem>
-                    </DropdownMenuContent>
-                </DropdownMenu>
-                {renderCurrentPageTitle(props.selected)}
-                <ThemeSwitcher />
-            </nav>
-        </>
+            </div>
+        </header>
     );
 };
 

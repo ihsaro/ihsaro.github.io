@@ -1,19 +1,28 @@
 import * as React from "react";
 import { AccordionTree } from "@/components/framework";
-import RawTreeNode from "@/models/RawTreeNode.ts";
+import RawTreeNode from "@/models/RawTreeNode";
 
 type Props = {
     data: Array<RawTreeNode>;
 };
 
-const TableOfContentPage: React.FC<Props> = (props) => {
-    const data = props.data;
+const TableOfContentPage: React.FC<Props> = ({ data }) => {
+    const items = data.map((node, index) => {
+        if (index !== 0) return node;
+        return {
+            ...node,
+            url: node.url.startsWith("/") ? node.url.slice(1) : node.url,
+        };
+    });
 
-    data[0].url = data[0].url.startsWith("/")
-        ? data[0].url.slice(1)
-        : data[0].url;
-
-    return <AccordionTree data={data} />;
+    return (
+        <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] p-5">
+            <p className="mb-3 text-xs font-semibold tracking-[0.3em] text-[var(--color-muted)] uppercase">
+                In this section
+            </p>
+            <AccordionTree data={items} />
+        </div>
+    );
 };
 
 export default TableOfContentPage;

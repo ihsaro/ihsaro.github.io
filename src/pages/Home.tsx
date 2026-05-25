@@ -1,14 +1,8 @@
-import { PageLayout } from "@/components/framework";
-import { SkillsDialog } from "@/components/routes/home";
-import { Card, CardDescription, CardHeader } from "@/components/ui/card";
-import { Dialog, DialogTrigger } from "@/components/ui/dialog";
-import { GitHubLogoIcon } from "@radix-ui/react-icons";
 import * as React from "react";
-import { getDateDifference } from "@/lib/utils.ts";
-import {
-    InitialLinuxUsageDate,
-    InitialWorkDate,
-} from "@/constants/EventDates.ts";
+import { Icon, PageLayout } from "@/components/framework";
+import { SkillsSection } from "@/components/routes/home";
+import { getDateDifference } from "@/lib/utils";
+import { InitialWorkDate } from "@/constants/EventDates";
 
 const Home: React.FC = () => {
     const { years, months, days } = getDateDifference(
@@ -18,153 +12,105 @@ const Home: React.FC = () => {
 
     return (
         <PageLayout selected="HOME">
-            <Dialog>
-                <section className="flex flex-col gap-4">
-                    <article className="text-4xl font-bold">
-                        Software crafter, linux fan, souls game addict
-                    </article>
-                    <article className="flex flex-col gap-3 text-lg">
-                        <div className="flex flex-row items-center">
+            <section className="flex flex-col gap-16 pb-12">
+                <div className="flex flex-col gap-6">
+                    <p className="text-xs font-medium tracking-[0.3em] text-[var(--color-muted)] uppercase">
+                        Lead Fullstack Developer · Mauritius
+                    </p>
+                    <h1 className="text-3xl leading-tight font-semibold tracking-tight sm:text-5xl">
+                        Software crafter,{" "}
+                        <span className="text-[var(--color-muted)]">
+                            linux fan,
+                        </span>{" "}
+                        souls game addict.
+                    </h1>
+
+                    <div className="flex flex-col gap-4 text-[15px] leading-relaxed text-[var(--color-muted)]">
+                        <p className="flex items-center gap-2">
                             <span>Hello there</span>
                             <img
-                                className="h-10"
+                                className="h-7"
                                 src="./2525058_ben kenobi_jedi_obi - wan kenobi_star wars_icon.png"
+                                alt=""
                             />
-                        </div>
-                        <span>
-                            I am Idjaz, a senior software engineer with{" "}
-                            <u>
+                        </p>
+                        <p>
+                            I am Idjaz, a lead fullstack developer with{" "}
+                            <span className="font-medium text-[var(--color-fg)]">
                                 {years} years, {months} months and {days} days
-                                of industry experience
-                            </u>{" "}
-                            (yep, precisely calculated daily &#128517;) based in
-                            Mauritius, with a primary focus around C#/ .NET and
-                            React development. I graduated with a{" "}
-                            <u>
+                            </span>{" "}
+                            of industry experience (yep, precisely calculated
+                            daily 😅), based in Mauritius, with a primary focus
+                            on C#/ .NET and React development. I graduated with
+                            a{" "}
+                            <span className="font-medium text-[var(--color-fg)]">
                                 1<sup>st</sup> class degree
-                            </u>{" "}
-                            while studying computer science at the University of
+                            </span>{" "}
+                            in computer science from the University of
                             Mauritius.
-                        </span>
-                        <span>
-                            Check out my pet projects on my{" "}
+                        </p>
+                        <p>
+                            Pet projects live on my{" "}
                             <a
-                                className="underline"
+                                className="inline-flex items-center gap-1 font-medium text-[var(--color-fg)] underline decoration-[var(--color-border)] decoration-2 underline-offset-4 transition-colors hover:decoration-[var(--color-fg)]"
                                 href="https://github.com/ihsaro?tab=repositories"
                                 target="_blank"
+                                rel="noreferrer"
                             >
-                                github's repositories
+                                github repositories
+                                <Icon name="external" size={12} />
                             </a>
                             .
-                        </span>
-                        <span>
-                            Reach out to me on{" "}
+                        </p>
+                        <p>
+                            Reach out at{" "}
                             <a
-                                className="underline"
+                                className="font-medium text-[var(--color-fg)] underline decoration-[var(--color-border)] decoration-2 underline-offset-4 transition-colors hover:decoration-[var(--color-fg)]"
                                 href="mailto:idjazhossanee@gmail.com"
                             >
                                 idjazhossanee@gmail.com
                             </a>{" "}
-                            or in one of my socials below &#128512;
-                        </span>
-                    </article>
-                    <article className="flex flex-row gap-5">
+                            or via the socials below 😀
+                        </p>
+                    </div>
+
+                    <div className="mt-2 flex items-center gap-2">
                         <a
                             href="https://www.facebook.com/idjaz.hossanee.90"
                             target="_blank"
+                            rel="noreferrer"
+                            aria-label="Facebook"
+                            className="flex h-9 w-9 items-center justify-center rounded-full border border-[var(--color-border)] transition-colors hover:bg-[var(--color-surface)]"
                         >
                             <img
-                                className="h-6"
+                                className="h-4"
                                 src="./Facebook_Logo_Primary.png"
+                                alt=""
                             />
                         </a>
                         <a
                             href="https://www.linkedin.com/in/muhammad-idjaz-ali-hossanee-5b5913167/"
                             target="_blank"
+                            rel="noreferrer"
+                            aria-label="LinkedIn"
+                            className="flex h-9 w-9 items-center justify-center rounded-full border border-[var(--color-border)] transition-colors hover:bg-[var(--color-surface)]"
                         >
-                            <img className="h-6" src="./LI-In-Bug.png" />
+                            <img className="h-4" src="./LI-In-Bug.png" alt="" />
                         </a>
-                        <a href="https://github.com/ihsaro" target="_blank">
-                            <GitHubLogoIcon className="h-6 w-6" />
+                        <a
+                            href="https://github.com/ihsaro"
+                            target="_blank"
+                            rel="noreferrer"
+                            aria-label="GitHub"
+                            className="flex h-9 w-9 items-center justify-center rounded-full border border-[var(--color-border)] text-[var(--color-fg)] transition-colors hover:bg-[var(--color-surface)]"
+                        >
+                            <Icon name="github" size={16} />
                         </a>
-                    </article>
-                    <article className="mt-5 flex flex-col flex-wrap justify-center gap-5 md:flex-row">
-                        {[
-                            {
-                                title: "C#/ .NET",
-                                description:
-                                    "This is my primary bread and butter.",
-                            },
-                            {
-                                title: "React",
-                                description:
-                                    "The only UI library that makes sense for me to specialize in.",
-                            },
-                            {
-                                title: "TS/ JS",
-                                description:
-                                    "Most developers should know one of them or both, and I do both.",
-                            },
-                            {
-                                title: "SQL Server",
-                                description:
-                                    "Been using only this as a DB in professional capacity.",
-                            },
-                            {
-                                title: "HTML5/ CSS3",
-                                description:
-                                    "Developing mainly on the web, I know both, but not a master of CSS.",
-                            },
-                            {
-                                title: "Tailwind",
-                                description:
-                                    "Being no master of CSS, Tailwind came to my rescue.",
-                            },
-                            {
-                                title: "Jetbrains Rider",
-                                description: "My primary C#/ .NET IDE",
-                            },
-                            {
-                                title: "Visual Studio",
-                                description:
-                                    "Was my primary C#/ .NET IDE, until I decided to go for jetbrains products.",
-                            },
-                            {
-                                title: "Visual Studio Code",
-                                description: "My go-to code editor.",
-                            },
-                            {
-                                title: "Linux & Bash",
-                                description: `I love linux, been using linux for ${getDateDifference(new Date(), InitialLinuxUsageDate).years}+ years, with the terminal.`,
-                            },
-                            {
-                                title: "Git",
-                                description: "Every developer uses it.",
-                            },
-                        ].map((item) => (
-                            <Card className="pr-7 md:basis-2/5 xl:basis-1/5">
-                                <CardHeader className="pb-2 pt-3 text-2xl">
-                                    {item.title}
-                                </CardHeader>
-                                <CardDescription className="ml-6 pb-5 text-base">
-                                    {item.description}
-                                </CardDescription>
-                            </Card>
-                        ))}
-                        <DialogTrigger asChild>
-                            <Card className="pr-7 transition-opacity duration-200 hover:cursor-pointer hover:opacity-50 md:basis-2/5 xl:basis-1/5">
-                                <CardHeader className="pb-2 pt-3 text-2xl">
-                                    And much more
-                                </CardHeader>
-                                <CardDescription className="ml-6 pb-5 text-base">
-                                    Click to find out
-                                </CardDescription>
-                            </Card>
-                        </DialogTrigger>
-                    </article>
-                </section>
-                <SkillsDialog />
-            </Dialog>
+                    </div>
+                </div>
+
+                <SkillsSection />
+            </section>
         </PageLayout>
     );
 };

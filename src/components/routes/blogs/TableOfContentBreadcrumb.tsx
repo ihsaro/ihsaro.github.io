@@ -1,37 +1,48 @@
-import React from "react";
-import {
-    Breadcrumb,
-    BreadcrumbItem,
-    BreadcrumbLink,
-    BreadcrumbList,
-    BreadcrumbSeparator,
-} from "@/components/ui/breadcrumb";
+import * as React from "react";
+import { Icon } from "@/components/framework";
 import { RawTreeNode } from "@/models";
 
 interface Props {
     paths: RawTreeNode[];
 }
 
-const TableOfContentBreadcrumb: React.FC<Props> = (props) => {
+const TableOfContentBreadcrumb: React.FC<Props> = ({ paths }) => {
     return (
-        <Breadcrumb>
-            <BreadcrumbList>
-                {props.paths.length > 0 && <BreadcrumbSeparator />}
-                {props.paths.map((breadcrumb, index) => (
-                    <>
-                        {index > 0 && <BreadcrumbSeparator />}
-                        {index < props.paths.length - 1 && (
-                            <BreadcrumbLink href={`/blogs${breadcrumb.url}`}>
+        <nav
+            aria-label="Breadcrumb"
+            className="flex items-center gap-1.5 text-sm text-[var(--color-muted)]"
+        >
+            <a
+                href="/blogs"
+                className="rounded-md px-2 py-1 transition-colors hover:bg-[var(--color-surface)] hover:text-[var(--color-fg)]"
+            >
+                Blogs
+            </a>
+            {paths.map((breadcrumb, index) => {
+                const isLast = index === paths.length - 1;
+                return (
+                    <React.Fragment key={breadcrumb.url}>
+                        <Icon
+                            name="chevron-right"
+                            size={12}
+                            className="text-[var(--color-border)]"
+                        />
+                        {isLast ? (
+                            <span className="rounded-md px-2 py-1 font-medium text-[var(--color-fg)]">
                                 {breadcrumb.title}
-                            </BreadcrumbLink>
+                            </span>
+                        ) : (
+                            <a
+                                href={`/blogs${breadcrumb.url}`}
+                                className="rounded-md px-2 py-1 transition-colors hover:bg-[var(--color-surface)] hover:text-[var(--color-fg)]"
+                            >
+                                {breadcrumb.title}
+                            </a>
                         )}
-                        {index == props.paths.length - 1 && (
-                            <BreadcrumbItem>{breadcrumb.title}</BreadcrumbItem>
-                        )}
-                    </>
-                ))}
-            </BreadcrumbList>
-        </Breadcrumb>
+                    </React.Fragment>
+                );
+            })}
+        </nav>
     );
 };
 

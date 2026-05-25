@@ -6,11 +6,15 @@ interface Props {
     selected?: "WORK_EXPERIENCE" | "BLOGS" | "HOME";
 }
 
-const PageLayout: React.FC<Props> = (props) => {
+const PageLayout: React.FC<Props> = ({ children, selected }) => {
     return (
-        <div className="flex min-h-screen flex-col">
-            <NavigationBar selected={props.selected} />
-            <main className="mx-10 mt-10 md:mx-28">{props.children}</main>
+        <div className="flex min-h-screen flex-col bg-[var(--color-bg)] text-[var(--color-fg)]">
+            <NavigationBar selected={selected} />
+            <main className="mx-6 mt-12 flex-1 md:mx-28">
+                <div className="animate-fade-in mx-auto w-full max-w-5xl">
+                    {children}
+                </div>
+            </main>
             <Footer />
         </div>
     );
